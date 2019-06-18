@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Tripulate
 //
-//  Created by Haim Marcovici on 17/06/2019.
+//  Created by Dani Shifer on 17/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
@@ -12,10 +12,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
+        if !previouslyLaunched {
+            UserDefaults.standard.set(true, forKey: "previouslyLaunched")
+            
+            Category.insertDefaultData(context: persistentContainer.viewContext)
+            
+            self.saveContext()
+        }
+        
         return true
     }
 
@@ -65,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
         return container
     }()
 

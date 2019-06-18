@@ -2,12 +2,13 @@
 //  SceneDelegate.swift
 //  Tripulate
 //
-//  Created by Haim Marcovici on 17/06/2019.
+//  Created by Dani Shifer on 17/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,8 +21,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Use a UIHostingController as window root view controller
+        
+        let request: NSFetchRequest<Trip> = Trip.fetchRequest()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Cannot get AppDelegate")
+        }
+        
+        do {
+            let trips = try appDelegate.persistentContainer.viewContext.fetch(request)
+            
+        } catch {
+            fatalError("Error \(error) \(error.localizedDescription)")
+        }
+        
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: ContentView())
+        let contentHostingController = UIHostingController(rootView: ContentView(viewModel: .init()))
+        
+        let expensesNavigationController = UINavigationController(rootViewController: contentHostingController)
+        expensesNavigationController.navigationBar.prefersLargeTitles = true
+        expensesNavigationController.tabBarItem = UITabBarItem(title: "Expenses", image: UIImage(systemName: "tray.full"), tag: 1)
+        
+        let statisticsHostingController = UIHostingController(rootView: StatisticsView())
+        statisticsHostingController.tabBarItem = UITabBarItem(title: "Statistics", image: UIImage(systemName: "chart.bar"), tag: 0)
+        
+        
+        let settingsHostingController = UIHostingController(rootView: SettingsView())
+        settingsHostingController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Expenses"
+        
+        contentHostingController.navigationItem.searchController = searchController
+        contentHostingController.definesPresentationContext = true
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [statisticsHostingController, expensesNavigationController, settingsHostingController]
+        tabBarController.selectedIndex = 2
+        
+        window.rootViewController = tabBarController
         self.window = window
         window.makeKeyAndVisible()
     }

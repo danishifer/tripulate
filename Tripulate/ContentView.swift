@@ -2,33 +2,40 @@
 //  ContentView.swift
 //  Tripulate
 //
-//  Created by Haim Marcovici on 17/06/2019.
+//  Created by Dani Shifer on 17/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
 import SwiftUI
+import Combine
+
 
 struct ContentView : View {
-    @State private var selection = 0
- 
+    @ObjectBinding var viewModel: AddTripViewModel
+    @State private var selectedCategory = 0
+    
     var body: some View {
-        TabbedView(selection: $selection){
-            Text("First View")
-                .font(.title)
-                .tabItemLabel(Image("first"))
-                .tag(0)
-            Text("Second View")
-                .font(.title)
-                .tabItemLabel(Image("second"))
-                .tag(1)
+        List {
+            Section {
+                TextField($viewModel.name, placeholder: Text("Name"))
+                AmountTextField(text: $viewModel.budget, placeholder: "Budget")
+                Picker(selection: $selectedCategory, label: Text("Category")) {
+                    Text("Hello").tag(0)
+                    Text("World").tag(1)
+                }
+            }
         }
+        .listStyle(.grouped)
+        .navigationBarTitle(Text("Expenses"))
     }
 }
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationView {
+            ContentView(viewModel: .init())
+        }
     }
 }
 #endif

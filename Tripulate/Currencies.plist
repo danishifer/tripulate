@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+        <key>code</key>
+        <string>USD</string>
+        <key>displayName</key>
+        <string>US dollar</string>
+        <key>symbol</key>
+        <string>$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>JPY</string>
+        <key>displayName</key>
+        <string>Japanese yen</string>
+        <key>symbol</key>
+        <string>¥</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>BGN</string>
+        <key>displayName</key>
+        <string>Bulgarian lev</string>
+        <key>symbol</key>
+        <string>лв</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>CZK</string>
+        <key>displayName</key>
+        <string>Czech koruna</string>
+        <key>symbol</key>
+        <string>Kč</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>DKK</string>
+        <key>displayName</key>
+        <string>Danish krone</string>
+        <key>symbol</key>
+        <string>kr</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>GBP</string>
+        <key>displayName</key>
+        <string>Pound sterling</string>
+        <key>symbol</key>
+        <string>£</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>HUF</string>
+        <key>displayName</key>
+        <string>Hungarian forint</string>
+        <key>symbol</key>
+        <string>ft</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>PLN</string>
+        <key>displayName</key>
+        <string>Polish zloty</string>
+        <key>symbol</key>
+        <string>zł</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>RON</string>
+        <key>displayName</key>
+        <string>Romanian leu</string>
+        <key>symbol</key>
+        <string>lei</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>SEK</string>
+        <key>displayName</key>
+        <string>Swedish krona</string>
+        <key>symbol</key>
+        <string>kr</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>CHF</string>
+        <key>displayName</key>
+        <string>Swiss franc</string>
+        <key>symbol</key>
+        <string>Fr</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>ISK</string>
+        <key>displayName</key>
+        <string>Icelandic krona</string>
+        <key>symbol</key>
+        <string>Íkr</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>NOK</string>
+        <key>displayName</key>
+        <string>Norwegian krone</string>
+        <key>symbol</key>
+        <string>kr</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>HRK</string>
+        <key>displayName</key>
+        <string>Croatian kuna</string>
+        <key>symbol</key>
+        <string>kn</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>RUB</string>
+        <key>displayName</key>
+        <string>Russian rouble</string>
+        <key>symbol</key>
+        <string>₽</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>TRY</string>
+        <key>displayName</key>
+        <string>Turkish lira</string>
+        <key>symbol</key>
+        <string>₺</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>AUD</string>
+        <key>displayName</key>
+        <string>Australian dollar</string>
+        <key>symbol</key>
+        <string>AU$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>BRL</string>
+        <key>displayName</key>
+        <string>Brazilian real</string>
+        <key>symbol</key>
+        <string>R$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>CAD</string>
+        <key>displayName</key>
+        <string>Canadian dollar</string>
+        <key>symbol</key>
+        <string>C$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>CNY</string>
+        <key>displayName</key>
+        <string>Chinese yuan renminbi</string>
+        <key>symbol</key>
+        <string>¥</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>HKD</string>
+        <key>displayName</key>
+        <string>Hong Kong dollar</string>
+        <key>symbol</key>
+        <string>HK$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>IDR</string>
+        <key>displayName</key>
+        <string>Indonesian rupiah</string>
+        <key>symbol</key>
+        <string>Rp</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>ILS</string>
+        <key>displayName</key>
+        <string>Israeli shekel</string>
+        <key>symbol</key>
+        <string>₪</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>INR</string>
+        <key>displayName</key>
+        <string>Indian rupee</string>
+        <key>symbol</key>
+        <string>₹</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>KRW</string>
+        <key>displayName</key>
+        <string>South Korean won</string>
+        <key>symbol</key>
+        <string>₩</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>MXN</string>
+        <key>displayName</key>
+        <string>Mexican peso</string>
+        <key>symbol</key>
+        <string>MX$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>MYR</string>
+        <key>displayName</key>
+        <string>Malaysian ringgit</string>
+        <key>symbol</key>
+        <string>RM</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>NZD</string>
+        <key>displayName</key>
+        <string>New Zealand dollar</string>
+        <key>symbol</key>
+        <string>NZ$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>PHP</string>
+        <key>displayName</key>
+        <string>Philippine peso</string>
+        <key>symbol</key>
+        <string>₱</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>SGD</string>
+        <key>displayName</key>
+        <string>Singapore dollar</string>
+        <key>symbol</key>
+        <string>SG$</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>THB</string>
+        <key>displayName</key>
+        <string>Thai baht</string>
+        <key>symbol</key>
+        <string>฿</string>
+    </dict>
+    <dict>
+        <key>code</key>
+        <string>ZAR</string>
+        <key>displayName</key>
+        <string>South African rand</string>
+        <key>symbol</key>
+        <string>R</string>
+    </dict>
+</array>
+</plist>

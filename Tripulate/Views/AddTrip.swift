@@ -20,18 +20,15 @@ struct AddTrip: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    TextField($name, placeholder: Text("Name"))
-                    AmountTextField(text: $budget, placeholder: "Budget")
-                    Picker(selection: $currency, label: Text("Currency")) {
-                        ForEach(self.viewModel.currencies.identified(by: \.code)) { (currency: Currency) in
-                            Text(currency.displayName).tag(currency.code)
-                        }
+            Form {
+                TextField($name, placeholder: Text("Name"))
+                AmountTextField(text: $budget, placeholder: "Budget")
+                Picker(selection: $currency, label: Text("Currency")) {
+                    ForEach(self.viewModel.currencies.identified(by: \.code)) { (currency: Currency) in
+                        Text(currency.displayName).tag(currency.code)
                     }
                 }
             }
-            .listStyle(.grouped)
             .navigationBarItems(
                 leading: Button(action: {
                     self.isPresented?.value = false
@@ -43,7 +40,10 @@ struct AddTrip: View {
                     Text("Add")
                 }
             )
-            .navigationBarItem(title: Text("New Trip"), titleDisplayMode: .inline, hidesBackButton: true)
+            .navigationBarTitle(Text("New Trip"), displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            
+        
         }
     }
 }

@@ -2,7 +2,7 @@
 //  TripulateUITests.swift
 //  TripulateUITests
 //
-//  Created by Haim Marcovici on 17/06/2019.
+//  Created by Dani Shifer on 17/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 

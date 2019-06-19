@@ -27,7 +27,9 @@ struct TripPickerView : View {
         }
         .listStyle(.grouped)
         .navigationBarTitle(Text("Active Trip"), displayMode: .inline)
-        .navigationBarItems(trailing: PresentationButton(Image(systemName: "plus"), destination: AddTrip()))
+            .navigationBarItems(trailing: PresentationButton(destination: AddTrip()) {
+                Image(systemName: "plus")
+            })
     }
 }
 

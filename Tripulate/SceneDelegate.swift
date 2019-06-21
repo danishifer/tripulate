@@ -34,9 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Error \(error) \(error.localizedDescription)")
         }
         
-        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let contentHostingController = UIHostingController(rootView: ContentView(viewModel: .init()))
+        let contentHostingController = UIHostingController(rootView: ContentView())
         
         let expensesNavigationController = UINavigationController(rootViewController: contentHostingController)
         expensesNavigationController.navigationBar.prefersLargeTitles = true
@@ -46,9 +45,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         statisticsHostingController.tabBarItem = UITabBarItem(title: "Statistics", image: UIImage(systemName: "chart.bar"), tag: 0)
         
         
-        let settingsHostingController = UIHostingController(rootView: SettingsView())
-        settingsHostingController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
-        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Expenses"
@@ -57,10 +53,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         contentHostingController.definesPresentationContext = true
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [statisticsHostingController, expensesNavigationController, settingsHostingController]
+        tabBarController.viewControllers = [statisticsHostingController, expensesNavigationController]
         tabBarController.selectedIndex = 2
         
         window.rootViewController = tabBarController
+    
+        window.rootViewController = appDelegate.appContainer.makeMainViewController(
+            viewControllers: [
+                appDelegate.appContainer.makeExpensesViewController(),
+                appDelegate.appContainer.makeSettingsViewController()
+            ],
+            defaultTabIndex: 1
+        )
+        
         self.window = window
         window.makeKeyAndVisible()
     }

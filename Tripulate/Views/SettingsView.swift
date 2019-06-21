@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct SettingsView : View {
+    @ObjectBinding var viewModel: SettingsViewModel
+    
     var body: some View {
         NavigationView {
-            List {
+            Form {
                 Section(footer: Text("Select the active trip or create a new one").color(.gray)) {
                     NavigationButton(destination: TripPickerView()) {
                         HStack {
@@ -22,16 +24,16 @@ struct SettingsView : View {
                     }
                 }
             }
-            .listStyle(.grouped)
             .navigationBarTitle(Text("Settings"))
         }
     }
 }
 
-#if DEBUG
-struct SettingsView_Previews : PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
-#endif
+//#if DEBUG
+//struct SettingsView_Previews : PreviewProvider {
+//
+//    static var previews: some View {
+//        SettingsView(viewModel: (UIApplication.shared.delegate as! AppDelegate).appContainer.makeSettingsViewModel())
+//    }
+//}
+//#endif

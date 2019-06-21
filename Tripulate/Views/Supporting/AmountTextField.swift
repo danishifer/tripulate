@@ -8,17 +8,11 @@
 
 import SwiftUI
 
-class AmountTextFieldDelegate {
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        print("changed")
-    }
-}
 
-struct AmountTextField: UIViewRepresentable, UITextFieldDelegate {
+
+struct AmountTextField: UIViewRepresentable {
     @Binding var text: String
     var placeholder: String = "Amount"
-    
-    func 
     
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
@@ -26,11 +20,9 @@ struct AmountTextField: UIViewRepresentable, UITextFieldDelegate {
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
         textField.text = text
         
-        textField.addTarget(AmountTextFieldDelegate(), action: Selector(("textFieldDidChange:")), for: .editingChanged)
+//        textField.addTarget(AmountTextFieldDelegate(), action: Selector(("textFieldDidChange:")), for: .editingChanged)
         return textField
     }
-    
-    
     
     
     func updateUIView(_ uiView: UITextField, context: Context) {

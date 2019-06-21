@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B7A7BB22BCDAB100392543 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7A7BA22BCDAB100392543 /* ConfigurationStore.swift */; };
+		10B7A7BD22BCE0D800392543 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */; };
+		10B7A7BF22BCE50A00392543 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7A7BE22BCE50A00392543 /* WelcomeView.swift */; };
+		10BAC2BC22BCFEE2005A642B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2BB22BCFEE2005A642B /* MainViewController.swift */; };
+		10BAC2C122BD0A5D005A642B /* SettingsHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2C022BD0A5D005A642B /* SettingsHostingController.swift */; };
+		10BAC2C322BD0C78005A642B /* TripulateExpensesDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2C222BD0C78005A642B /* TripulateExpensesDependencyContainer.swift */; };
+		10BAC2C522BD0DBA005A642B /* ExpensesHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2C422BD0DBA005A642B /* ExpensesHostingController.swift */; };
+		10BAC2C922BD0ED6005A642B /* ExpensesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2C822BD0ED6005A642B /* ExpensesNavigationController.swift */; };
+		10BAC2CC22BD1141005A642B /* TripulateSettingsDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2CB22BD1141005A642B /* TripulateSettingsDependencyContainer.swift */; };
 		B81E7E2E22B8FAED00BBAB72 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E7E2822B8FAED00BBAB72 /* Expense+CoreDataClass.swift */; };
 		B81E7E2F22B8FAED00BBAB72 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E7E2922B8FAED00BBAB72 /* Expense+CoreDataProperties.swift */; };
 		B81E7E3022B8FAED00BBAB72 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E7E2A22B8FAED00BBAB72 /* Category+CoreDataClass.swift */; };
@@ -56,6 +65,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10B7A7BA22BCDAB100392543 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
+		10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		10B7A7BE22BCE50A00392543 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		10BAC2BB22BCFEE2005A642B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		10BAC2C022BD0A5D005A642B /* SettingsHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHostingController.swift; sourceTree = "<group>"; };
+		10BAC2C222BD0C78005A642B /* TripulateExpensesDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripulateExpensesDependencyContainer.swift; sourceTree = "<group>"; };
+		10BAC2C422BD0DBA005A642B /* ExpensesHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHostingController.swift; sourceTree = "<group>"; };
+		10BAC2C822BD0ED6005A642B /* ExpensesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesNavigationController.swift; sourceTree = "<group>"; };
+		10BAC2CB22BD1141005A642B /* TripulateSettingsDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripulateSettingsDependencyContainer.swift; sourceTree = "<group>"; };
 		B81E7E2822B8FAED00BBAB72 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B81E7E2922B8FAED00BBAB72 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B81E7E2A22B8FAED00BBAB72 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -118,11 +136,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BAC2BF22BD0A4B005A642B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10BAC2C722BD0EC5005A642B /* Expenses */,
+				10BAC2CA22BD1114005A642B /* Settings */,
+				10BAC2BB22BCFEE2005A642B /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		10BAC2C722BD0EC5005A642B /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				10BAC2C422BD0DBA005A642B /* ExpensesHostingController.swift */,
+				10BAC2C822BD0ED6005A642B /* ExpensesNavigationController.swift */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		10BAC2CA22BD1114005A642B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				10BAC2C022BD0A5D005A642B /* SettingsHostingController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		10BAC2CD22BD173C005A642B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				10B7A7BE22BCE50A00392543 /* WelcomeView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		10BAC2CE22BD1753005A642B /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B89B65E422B7CBEF00EE750C /* AmountTextField.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		B81E7E4422B93DB900BBAB72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B81E7E4522B93DCB00BBAB72 /* Currency.swift */,
 				B81E7E4722B93E1800BBAB72 /* Currency+DefaultData.swift */,
+				10B7A7BA22BCDAB100392543 /* ConfigurationStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,11 +212,10 @@
 		B89B658E22B7B53B00EE750C /* Tripulate */ = {
 			isa = PBXGroup;
 			children = (
-				B81E7E4222B9336900BBAB72 /* Currencies.plist */,
-				B81E7E3E22B91D5D00BBAB72 /* DefaultCategories.plist */,
 				B89B65DD22B7BCC900EE750C /* CoreData */,
 				B81E7E4422B93DB900BBAB72 /* Model */,
 				B89B65E022B7BF6400EE750C /* DependencyContainers */,
+				10BAC2BF22BD0A4B005A642B /* Controllers */,
 				B89B65DC22B7BAC400EE750C /* ViewModel */,
 				B89B65E322B7CBCD00EE750C /* Views */,
 				B89B658F22B7B53B00EE750C /* AppDelegate.swift */,
@@ -164,6 +225,8 @@
 				B89B659822B7B53E00EE750C /* Assets.xcassets */,
 				B89B659D22B7B53E00EE750C /* LaunchScreen.storyboard */,
 				B89B65A022B7B53E00EE750C /* Info.plist */,
+				B81E7E4222B9336900BBAB72 /* Currencies.plist */,
+				B81E7E3E22B91D5D00BBAB72 /* DefaultCategories.plist */,
 				B89B659322B7B53B00EE750C /* Tripulate.xcdatamodeld */,
 				B89B659A22B7B53E00EE750C /* Preview Content */,
 			);
@@ -200,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */,
+				10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				B89B65DE22B7BEED00EE750C /* TripulateAppDependencyContainer.swift */,
+				10BAC2C222BD0C78005A642B /* TripulateExpensesDependencyContainer.swift */,
+				10BAC2CB22BD1141005A642B /* TripulateSettingsDependencyContainer.swift */,
 			);
 			path = DependencyContainers;
 			sourceTree = "<group>";
@@ -230,7 +296,8 @@
 		B89B65E322B7CBCD00EE750C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B89B65E422B7CBEF00EE750C /* AmountTextField.swift */,
+				10BAC2CE22BD1753005A642B /* Supporting */,
+				10BAC2CD22BD173C005A642B /* Welcome */,
 				B81E7E3422B8FD7800BBAB72 /* SettingsView.swift */,
 				B81E7E3622B9002B00BBAB72 /* StatisticsView.swift */,
 				B81E7E3822B9035600BBAB72 /* TripPickerView.swift */,
@@ -373,24 +440,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BAC2C522BD0DBA005A642B /* ExpensesHostingController.swift in Sources */,
 				B89B65DF22B7BEED00EE750C /* TripulateAppDependencyContainer.swift in Sources */,
+				10B7A7BD22BCE0D800392543 /* SettingsViewModel.swift in Sources */,
 				B81E7E3722B9002B00BBAB72 /* StatisticsView.swift in Sources */,
 				B89B65E722B7CD0500EE750C /* AddTripViewModel.swift in Sources */,
 				B81E7E4822B93E1800BBAB72 /* Currency+DefaultData.swift in Sources */,
 				B81E7E2E22B8FAED00BBAB72 /* Expense+CoreDataClass.swift in Sources */,
 				B81E7E3022B8FAED00BBAB72 /* Category+CoreDataClass.swift in Sources */,
+				10BAC2C322BD0C78005A642B /* TripulateExpensesDependencyContainer.swift in Sources */,
 				B89B659022B7B53B00EE750C /* AppDelegate.swift in Sources */,
 				B89B659522B7B53B00EE750C /* Tripulate.xcdatamodeld in Sources */,
+				10B7A7BB22BCDAB100392543 /* ConfigurationStore.swift in Sources */,
 				B81E7E3922B9035600BBAB72 /* TripPickerView.swift in Sources */,
 				B81E7E4122B923C600BBAB72 /* ImageTransformer.swift in Sources */,
 				B81E7E3122B8FAED00BBAB72 /* Category+CoreDataProperties.swift in Sources */,
 				B81E7E3522B8FD7800BBAB72 /* SettingsView.swift in Sources */,
+				10BAC2BC22BCFEE2005A642B /* MainViewController.swift in Sources */,
+				10BAC2C922BD0ED6005A642B /* ExpensesNavigationController.swift in Sources */,
 				B89B659722B7B53B00EE750C /* ContentView.swift in Sources */,
 				B81E7E3B22B904B100BBAB72 /* AddTrip.swift in Sources */,
 				B81E7E3322B8FAED00BBAB72 /* Trip+CoreDataProperties.swift in Sources */,
 				B81E7E3D22B9142C00BBAB72 /* Category+DefaultData.swift in Sources */,
+				10BAC2CC22BD1141005A642B /* TripulateSettingsDependencyContainer.swift in Sources */,
 				B89B65E522B7CBEF00EE750C /* AmountTextField.swift in Sources */,
+				10B7A7BF22BCE50A00392543 /* WelcomeView.swift in Sources */,
 				B81E7E4622B93DCB00BBAB72 /* Currency.swift in Sources */,
+				10BAC2C122BD0A5D005A642B /* SettingsHostingController.swift in Sources */,
 				B89B659222B7B53B00EE750C /* SceneDelegate.swift in Sources */,
 				B81E7E3222B8FAED00BBAB72 /* Trip+CoreDataClass.swift in Sources */,
 				B81E7E2F22B8FAED00BBAB72 /* Expense+CoreDataProperties.swift in Sources */,

@@ -9,24 +9,25 @@
 import SwiftUI
 import Combine
 
-
 struct ContentView : View {
-    @ObjectBinding var viewModel: AddTripViewModel
+//    @ObjectBinding var viewModel: AddTripViewModel
     @State private var selectedCategory = 0
     
     var body: some View {
-        List {
-            Section {
-                TextField($viewModel.name, placeholder: Text("Name"))
-                AmountTextField(text: $viewModel.budget, placeholder: "Budget")
-                Picker(selection: $selectedCategory, label: Text("Category")) {
-                    Text("Hello").tag(0)
-                    Text("World").tag(1)
-                }
-            }
-        }
-        .listStyle(.grouped)
+        Text("Hello, World")
+//        List {
+//            Section {
+//                TextField($viewModel.name, placeholder: Text("Name"))
+//                AmountTextField(text: $viewModel.budget, placeholder: "Budget")
+//                Picker(selection: $selectedCategory, label: Text("Category")) {
+//                    Text("Hello").tag(0)
+//                    Text("World").tag(1)
+//                }
+//            }
+//        }
+//        .listStyle(.grouped)
         .navigationBarTitle(Text("Expenses"))
+//        .presentation(Modal(WelcomeView()))
     }
 }
 
@@ -34,7 +35,7 @@ struct ContentView : View {
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView(viewModel: .init())
+            ContentView(/*viewModel: .init()*/)
         }
     }
 }

@@ -45,6 +45,7 @@
 		B89B65DF22B7BEED00EE750C /* TripulateAppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65DE22B7BEED00EE750C /* TripulateAppDependencyContainer.swift */; };
 		B89B65E522B7CBEF00EE750C /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65E422B7CBEF00EE750C /* AmountTextField.swift */; };
 		B89B65E722B7CD0500EE750C /* AddTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */; };
+		B8E9229922BD30170034EE0E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9229822BD30170034EE0E /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		B89B65DE22B7BEED00EE750C /* TripulateAppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripulateAppDependencyContainer.swift; sourceTree = "<group>"; };
 		B89B65E422B7CBEF00EE750C /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewModel.swift; sourceTree = "<group>"; };
+		B8E9229822BD30170034EE0E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				B81E7E3622B9002B00BBAB72 /* StatisticsView.swift */,
 				B81E7E3822B9035600BBAB72 /* TripPickerView.swift */,
 				B81E7E3A22B904B100BBAB72 /* AddTrip.swift */,
+				B8E9229822BD30170034EE0E /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				B81E7E3D22B9142C00BBAB72 /* Category+DefaultData.swift in Sources */,
 				10BAC2CC22BD1141005A642B /* TripulateSettingsDependencyContainer.swift in Sources */,
 				B89B65E522B7CBEF00EE750C /* AmountTextField.swift in Sources */,
+				B8E9229922BD30170034EE0E /* RootView.swift in Sources */,
 				10B7A7BF22BCE50A00392543 /* WelcomeView.swift in Sources */,
 				B81E7E4622B93DCB00BBAB72 /* Currency.swift in Sources */,
 				10BAC2C122BD0A5D005A642B /* SettingsHostingController.swift in Sources */,

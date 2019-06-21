@@ -26,19 +26,6 @@ class TripulateAppDependencyContainer {
         self.sharedConfigurationStore = configurationStore
     }
     
-    func makeMainViewController(
-        viewControllers: [UIViewController],
-        defaultTabIndex: Int = 0
-    ) -> MainViewController {
-        return MainViewController(
-            viewControllers: viewControllers,
-            defaultTabIndex: defaultTabIndex,
-            welcomeViewFactory: {
-                return self.makeWelcomeView()
-            }
-        )
-    }
-    
     func makeExpensesViewController() -> UIViewController {
         let expensesDependencyContainer = TripulateExpensesDependencyContainer(appDependencyContainer: self)
         return expensesDependencyContainer.makeExpensesNavigationController()

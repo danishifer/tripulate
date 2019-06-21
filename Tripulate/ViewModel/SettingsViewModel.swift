@@ -12,11 +12,7 @@ import Combine
 class SettingsViewModel: BindableObject {
     let didChange = PassthroughSubject<Void, Never>()
     
-    var activeTrip: Trip? {
-        get {
-            return configurationStore.getActiveTrip()
-        }
-    }
+   
     
     let configurationStore: ConfigurationStore!
     

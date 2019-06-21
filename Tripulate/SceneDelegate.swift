@@ -58,13 +58,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window.rootViewController = tabBarController
     
-        window.rootViewController = appDelegate.appContainer.makeMainViewController(
-            viewControllers: [
-                appDelegate.appContainer.makeExpensesViewController(),
-                appDelegate.appContainer.makeSettingsViewController()
-            ],
-            defaultTabIndex: 1
-        )
+        
+        window.rootViewController = UIHostingController(rootView: RootView(
+            controller: MainViewController(
+                viewControllers: [
+                    appDelegate.appContainer.makeExpensesViewController(),
+                    appDelegate.appContainer.makeSettingsViewController()
+                ],
+                defaultTabIndex: 1
+            )
+        ))
         
         self.window = window
         window.makeKeyAndVisible()

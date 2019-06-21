@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct AmountTextField: UIViewRepresentable {
     @Binding var text: String
     var placeholder: String = "Amount"
@@ -18,9 +16,12 @@ struct AmountTextField: UIViewRepresentable {
         let textField = UITextField()
         textField.keyboardType = .decimalPad
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
-        textField.text = text
         
-//        textField.addTarget(AmountTextFieldDelegate(), action: Selector(("textFieldDidChange:")), for: .editingChanged)
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: nil) { (notification) in
+            self.text = textField.text ?? ""
+            
+        }
+        
         return textField
     }
     

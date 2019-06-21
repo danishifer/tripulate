@@ -8,24 +8,21 @@
 
 import Foundation
 
-//protocol TripulateDataStore {
-//    func getTrips() -> [Trip]
-//}
-
 protocol ConfigurationStore {
-    func getActiveTrip() -> Trip?
-    func setActiveTrip(_ trip: Trip)
+    var activeTripID: String? { get set }
 }
 
 class UserDefaultsConfigurationStore: ConfigurationStore {
-    static let kActiveTripKey = "activeTrip"
+    static let kActiveTripIDKey = "activeTripID"
     
-    func getActiveTrip() -> Trip? {
-        return UserDefaults.standard.object(forKey: Self.kActiveTripKey) as? Trip
+    var activeTripID: String? {
+        get {
+            return UserDefaults.standard.string(forKey: Self.kActiveTripIDKey)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Self.kActiveTripIDKey)
+        }
     }
     
-    func setActiveTrip(_ trip: Trip) {
-        print("Set active trip")
-    }
 }
 

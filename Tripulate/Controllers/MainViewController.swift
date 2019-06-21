@@ -8,14 +8,23 @@
 
 import SwiftUI
 
-class MainViewController: UITabBarController {
-    convenience init(
-        viewControllers: [UIViewController],
-        defaultTabIndex: Int = 0,
-        welcomeViewFactory: @escaping () -> WelcomeView
-    ) {
-        self.init(nibName: nil, bundle: nil)
+struct MainViewController: UIViewControllerRepresentable {
+    let viewControllers: [UIViewController]
+    let defaultTabIndex: Int
+    
+    init(viewControllers: [UIViewController], defaultTabIndex: Int = 0) {
         self.viewControllers = viewControllers
-        self.selectedIndex = defaultTabIndex
+        self.defaultTabIndex = defaultTabIndex
+    }
+    
+    func makeUIViewController(context: Context) -> UITabBarController {
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = viewControllers
+        tabBarController.selectedIndex = defaultTabIndex
+        return tabBarController
+    }
+    
+    func updateUIViewController(_ uiViewController: UITabBarController, context: Context) {
+        
     }
 }

@@ -12,11 +12,11 @@ import Combine
 class RootViewModel: BindableObject {
     let didChange = PassthroughSubject<Void, Never>()
     var configurationStore: ConfigurationStore
-    let welcomeViewFactory: () -> WelcomeView
+    let welcomeViewFactory: () -> WelcomeView.WithViewModel
     
     init(
         configurationStore: ConfigurationStore,
-        welcomeViewFactory: @escaping () -> WelcomeView
+        welcomeViewFactory: @escaping () -> WelcomeView.WithViewModel
     ) {
         self.configurationStore = configurationStore
         self.welcomeViewFactory = welcomeViewFactory

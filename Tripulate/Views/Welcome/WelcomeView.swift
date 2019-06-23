@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct WelcomeView : View {
-    @ObjectBinding var viewModel: WelcomeViewModel
+    @EnvironmentObject var viewModel: WelcomeViewModel
     
     var body: some View {
         NavigationView {
@@ -28,7 +28,6 @@ struct WelcomeView : View {
                 
                 Spacer()
                 
-            
                 Button(action: {
                     self.viewModel.showAddTripModal.toggle()
                 }) {
@@ -52,13 +51,15 @@ struct WelcomeView : View {
             .navigationBarHidden(true)
             .presentation(
                 viewModel.showAddTripModal ?
-                Modal(viewModel.addTripViewFactory($viewModel.showAddTripModal), onDismiss: {
-                    self.viewModel.showAddTripModal.toggle()
+                Modal(viewModel.addTripView, onDismiss: {
+                    self.viewModel.showAddTripModal = false
                 }):
                 nil
             )
         }
     }
+    
+    typealias WithViewModel = WelcomeView.Modified<_EnvironmentKeyWritingModifier<WelcomeViewModel?>>
 }
 
 //#if DEBUG

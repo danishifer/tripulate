@@ -2,7 +2,7 @@
 //  RootView.swift
 //  Tripulate
 //
-//  Created by Haim Marcovici on 21/06/2019.
+//  Created by Dani Shifer on 21/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
@@ -10,14 +10,12 @@ import SwiftUI
 
 struct RootView : View {
     let controller: MainViewController
-    let welcomeView: WelcomeView
-    
-    @ObjectBinding var viewModel: RootViewModel
+    @EnvironmentObject var viewModel: RootViewModel
     
     var body: some View {
         controller
             .edgesIgnoringSafeArea(.all)
-            .presentation(viewModel.showWelcomeView ? Modal(welcomeView) : nil)
+            .presentation(viewModel.showWelcomeView ? Modal(viewModel.welcomeViewFactory()) : nil)
     }
 }
 

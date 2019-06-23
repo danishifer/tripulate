@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 struct ContentView : View {
-//    @ObjectBinding var viewModel: AddTripViewModel
     @State private var selectedCategory = 0
     
     var body: some View {
@@ -27,7 +26,6 @@ struct ContentView : View {
 //        }
 //        .listStyle(.grouped)
         .navigationBarTitle(Text("Expenses"))
-//        .presentation(Modal(WelcomeView()))
     }
 }
 

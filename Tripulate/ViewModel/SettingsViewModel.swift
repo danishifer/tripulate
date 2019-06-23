@@ -12,13 +12,23 @@ import Combine
 class SettingsViewModel: BindableObject {
     let didChange = PassthroughSubject<Void, Never>()
     
-   
+    let configurationStore: ConfigurationStore
+    let dataStore: DataStore
     
-    let configurationStore: ConfigurationStore!
-    
-    init(configurationStore: ConfigurationStore) {
+    init(dataStore: DataStore, configurationStore: ConfigurationStore) {
+        self.dataStore = dataStore
         self.configurationStore = configurationStore
     }
     
+    
+    var activeTripName: String? {
+        get {
+            guard let activeTripID = configurationStore.activeTripID else {
+                return nil
+            }
+            
+            return dataStore.getTrip(byID: activeTripID)?.name
+        }
+    }
     
 }

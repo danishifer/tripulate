@@ -12,10 +12,12 @@ import CoreData
 
 class AddTripViewModel: BindableObject {
     
-    let dataStore: DataStore!
+    var configurationStore: ConfigurationStore
+    let dataStore: DataStore
     
-    init(dataStore: DataStore) {
+    init(dataStore: DataStore, configurationStore: ConfigurationStore) {
         self.dataStore = dataStore
+        self.configurationStore = configurationStore
     }
     
     var didChange = PassthroughSubject<AddTripViewModel, Never>()
@@ -46,7 +48,8 @@ class AddTripViewModel: BindableObject {
         let trip = Trip(name: name, budget: budget, currency: currency)
         
         do {
-            try dataStore.addTrip(trip)
+            let tripId = try dataStore.addTrip(trip)
+            configurationStore.activeTripID = tripId
         } catch {
             print("Error: \(error)")
             return false

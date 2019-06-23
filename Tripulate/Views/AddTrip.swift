@@ -10,8 +10,8 @@ import SwiftUI
 import CoreData
 
 struct AddTrip: View {
-    @ObjectBinding var viewModel: AddTripViewModel
-    @Binding var isPresented: Bool
+    @EnvironmentObject var viewModel: AddTripViewModel
+    let onDismiss: () -> Void
     
     var body: some View {
         NavigationView {
@@ -26,11 +26,16 @@ struct AddTrip: View {
             }
             .navigationBarItems(
                 leading: Button(action: {
-                    self.isPresented = false
+                    self.onDismiss()
                 }) {
                     Text("Cancel")
                 },
                 trailing: Button(action: {
+                    if self.viewModel.addTrip() {
+                        self.onDismiss()
+                    } else {
+                        print("Couldn't add trip")
+                    }
                 }) {
                     Text("Add")
                 }
@@ -39,7 +44,10 @@ struct AddTrip: View {
             .navigationBarBackButtonHidden(true)
         }
     }
+    
+    typealias WithViewModel = AddTrip.Modified<_EnvironmentKeyWritingModifier<AddTripViewModel?>>
 }
+
 
 //#if DEBUG
 //struct AddTrip_Previews : PreviewProvider {

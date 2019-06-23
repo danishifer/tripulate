@@ -19,7 +19,7 @@ struct SettingsView : View {
                         HStack {
                             Text("Trip")
                             Spacer()
-                            Text("Hawaii 2019").color(.secondary)
+                            Text("").color(.secondary)
                         }
                     }
                 }

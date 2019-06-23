@@ -28,9 +28,10 @@ class TripulateAppDependencyContainer {
     }
     
     func makeRootViewModel() -> RootViewModel {
-        return RootViewModel(configurationStore: sharedConfigurationStore, welcomeViewFactory: {
-            return self.makeWelcomeView()
-        })
+        return RootViewModel(
+            configurationStore: sharedConfigurationStore,
+            welcomeViewFactory: self.makeWelcomeView
+        )
     }
     
     func makeExpensesViewController() -> UIViewController {
@@ -44,23 +45,20 @@ class TripulateAppDependencyContainer {
     }
     
     func makeAddTripViewModel() -> AddTripViewModel {
-        return AddTripViewModel(dataStore: sharedDataStore)
+        return AddTripViewModel(dataStore: sharedDataStore, configurationStore: sharedConfigurationStore)
     }
     
-    func makeAddTripView(isPresented: Binding<Bool>) -> AddTrip {
-        return AddTrip(viewModel: makeAddTripViewModel(), isPresented: isPresented)
+    func makeAddTripView(onDismiss: @escaping () -> Void) -> AddTrip.WithViewModel {
+        return AddTrip(onDismiss: onDismiss).environmentObject(makeAddTripViewModel())
     }
     
     func makeWelcomeViewModel() -> WelcomeViewModel {
-        return WelcomeViewModel { (isPresented) -> AddTrip in
-            return self.makeAddTripView(isPresented: isPresented)
-        }
+        return WelcomeViewModel(addTripViewFactory: self.makeAddTripView)
     }
     
-    func makeWelcomeView() -> WelcomeView {
-        return WelcomeView(viewModel: makeWelcomeViewModel())
+    func makeWelcomeView() -> WelcomeView.WithViewModel {
+        return WelcomeView().environmentObject(makeWelcomeViewModel())
     }
-
     
     func makeStatisticsView() -> StatisticsView {
         return StatisticsView()

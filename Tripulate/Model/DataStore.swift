@@ -9,7 +9,8 @@
 import Foundation
 
 protocol DataStore {
-    func addTrip(_ trip: Trip) throws
+    func addTrip(_ trip: Trip) throws -> String
+    func getTrip(byID id: String) -> Trip?
 }
 
 

@@ -18,9 +18,16 @@ class WelcomeViewModel: BindableObject {
         }
     }
     
-    let addTripViewFactory: (Binding<Bool>) -> AddTrip
+    let addTripViewFactory: (@escaping () -> Void) -> AddTrip.WithViewModel
     
-    init(addTripViewFactory: @escaping (Binding<Bool>) -> AddTrip) {
+    
+    init(addTripViewFactory: @escaping (@escaping () -> Void) -> AddTrip.WithViewModel) {
         self.addTripViewFactory = addTripViewFactory
     }
+    
+    lazy var addTripView: AddTrip.WithViewModel = {
+        return self.addTripViewFactory {
+            self.showAddTripModal = false
+        }
+    }()
 }

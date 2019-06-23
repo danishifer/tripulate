@@ -19,7 +19,8 @@ extension CDExpense {
 
     @NSManaged public var amount: Double
     @NSManaged public var name: String?
-    @NSManaged public var categoryId: UUID?
+    @NSManaged public var categoryId: String
     @NSManaged public var trip: CDTrip?
+    @NSManaged public var date: Date
 
 }

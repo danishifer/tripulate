@@ -52,6 +52,8 @@
 		B89B65DF22B7BEED00EE750C /* TripulateAppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65DE22B7BEED00EE750C /* TripulateAppDependencyContainer.swift */; };
 		B89B65E522B7CBEF00EE750C /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65E422B7CBEF00EE750C /* AmountTextField.swift */; };
 		B89B65E722B7CD0500EE750C /* AddTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */; };
+		B8C2796E22BFC917008D0711 /* CDTrip+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2796D22BFC917008D0711 /* CDTrip+Conversion.swift */; };
+		B8C2797022BFD306008D0711 /* CDExpense+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2796F22BFD306008D0711 /* CDExpense+Conversion.swift */; };
 		B8E9229922BD30170034EE0E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9229822BD30170034EE0E /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,8 @@
 		B89B65DE22B7BEED00EE750C /* TripulateAppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripulateAppDependencyContainer.swift; sourceTree = "<group>"; };
 		B89B65E422B7CBEF00EE750C /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewModel.swift; sourceTree = "<group>"; };
+		B8C2796D22BFC917008D0711 /* CDTrip+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTrip+Conversion.swift"; sourceTree = "<group>"; };
+		B8C2796F22BFD306008D0711 /* CDExpense+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDExpense+Conversion.swift"; sourceTree = "<group>"; };
 		B8E9229822BD30170034EE0E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,8 +289,8 @@
 			children = (
 				105796B722BD581400355614 /* RootViewModel.swift */,
 				B89B65E622B7CD0500EE750C /* AddTripViewModel.swift */,
-				10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */,
 				105796C322BE0AC800355614 /* WelcomeViewModel.swift */,
+				10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -296,10 +300,12 @@
 			children = (
 				B81E7E2822B8FAED00BBAB72 /* CDExpense+Class.swift */,
 				B81E7E2922B8FAED00BBAB72 /* CDExpense+Properties.swift */,
+				B8C2796F22BFD306008D0711 /* CDExpense+Conversion.swift */,
 				B81E7E2A22B8FAED00BBAB72 /* CDCategory+Class.swift */,
 				B81E7E2B22B8FAED00BBAB72 /* CDCategory+Properties.swift */,
 				B81E7E2C22B8FAED00BBAB72 /* CDTrip+Class.swift */,
 				B81E7E2D22B8FAED00BBAB72 /* CDTrip+Properties.swift */,
+				B8C2796D22BFC917008D0711 /* CDTrip+Conversion.swift */,
 				B81E7E3C22B9142C00BBAB72 /* CDCategory+DefaultData.swift */,
 				B81E7E4022B923C600BBAB72 /* ImageTransformer.swift */,
 			);
@@ -485,6 +491,8 @@
 				B81E7E4122B923C600BBAB72 /* ImageTransformer.swift in Sources */,
 				B81E7E3122B8FAED00BBAB72 /* CDCategory+Properties.swift in Sources */,
 				B81E7E3522B8FD7800BBAB72 /* SettingsView.swift in Sources */,
+				B8C2797022BFD306008D0711 /* CDExpense+Conversion.swift in Sources */,
+				B8C2796E22BFC917008D0711 /* CDTrip+Conversion.swift in Sources */,
 				10BAC2BC22BCFEE2005A642B /* MainViewController.swift in Sources */,
 				10BAC2C922BD0ED6005A642B /* ExpensesNavigationController.swift in Sources */,
 				B89B659722B7B53B00EE750C /* ContentView.swift in Sources */,

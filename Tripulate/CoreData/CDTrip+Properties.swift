@@ -18,8 +18,8 @@ extension CDTrip {
     }
 
     @NSManaged public var budget: Double
-    @NSManaged public var currency: String?
-    @NSManaged public var name: String?
+    @NSManaged public var currency: String
+    @NSManaged public var name: String
     @NSManaged public var expenses: NSSet?
 
 }

@@ -14,11 +14,12 @@ class TripulateSettingsDependencyContainer {
     // MARK: - Properties
     // From parent container
     let sharedConfigurationStore: ConfigurationStore
-    
+    let sharedDataStore: DataStore
     
     // MARK: - Methods
     init(appDependencyContainer: TripulateAppDependencyContainer) {
         self.sharedConfigurationStore = appDependencyContainer.sharedConfigurationStore
+        self.sharedDataStore = appDependencyContainer.sharedDataStore
     }
     
     func makeSettingsHostingController() -> UIHostingController<SettingsView> {
@@ -30,6 +31,6 @@ class TripulateSettingsDependencyContainer {
     }
     
     func makeSettingsViewModel() -> SettingsViewModel {
-        return SettingsViewModel.init(configurationStore: sharedConfigurationStore)
+        return SettingsViewModel.init(dataStore: sharedDataStore, configurationStore: sharedConfigurationStore)
     }
 }

@@ -66,10 +66,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     appDelegate.appContainer.makeSettingsViewController()
                 ],
                 defaultTabIndex: 1
-            ),
-            welcomeView: appDelegate.appContainer.makeWelcomeView(),
-            viewModel: appDelegate.appContainer.makeRootViewModel()
-        ))
+            )
+        ).environmentObject(appDelegate.appContainer.makeRootViewModel()))
         
         self.window = window
         window.makeKeyAndVisible()

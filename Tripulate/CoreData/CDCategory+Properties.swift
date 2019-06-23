@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 import UIKit
 
-extension Category {
+extension CDCategory {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Category> {
-        return NSFetchRequest<Category>(entityName: "Category")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDCategory> {
+        return NSFetchRequest<CDCategory>(entityName: "Category")
     }
 
     @NSManaged public var icon: UIImage?

@@ -10,19 +10,21 @@ import SwiftUI
 
 struct RootView : View {
     let controller: MainViewController
-    @State private var showWelcomeScreen = true
+    let welcomeView: WelcomeView
+    
+    @ObjectBinding var viewModel: RootViewModel
     
     var body: some View {
         controller
             .edgesIgnoringSafeArea(.all)
-            .presentation(showWelcomeScreen ? Modal(WelcomeView()) : nil)
+            .presentation(viewModel.showWelcomeView ? Modal(welcomeView) : nil)
     }
 }
 
-#if DEBUG
-struct RootView_Previews : PreviewProvider {
-    static var previews: some View {
-        RootView(controller: .init(viewControllers: []))
-    }
-}
-#endif
+//#if DEBUG
+//struct RootView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        RootView(controller: .init(viewControllers: []), viewModel: .init())
+//    }
+//}
+//#endif

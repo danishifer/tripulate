@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller
         
-        let request: NSFetchRequest<Trip> = Trip.fetchRequest()
+        let request: NSFetchRequest<CDTrip> = CDTrip.fetchRequest()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("Cannot get AppDelegate")
         }
@@ -66,7 +66,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     appDelegate.appContainer.makeSettingsViewController()
                 ],
                 defaultTabIndex: 1
-            )
+            ),
+            welcomeView: appDelegate.appContainer.makeWelcomeView(),
+            viewModel: appDelegate.appContainer.makeRootViewModel()
         ))
         
         self.window = window

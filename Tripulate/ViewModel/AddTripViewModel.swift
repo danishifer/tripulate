@@ -12,22 +12,50 @@ import CoreData
 
 class AddTripViewModel: BindableObject {
     
-    var didChange = PassthroughSubject<Void, Never>()
+    let dataStore: DataStore!
+    
+    init(dataStore: DataStore) {
+        self.dataStore = dataStore
+    }
+    
+    var didChange = PassthroughSubject<AddTripViewModel, Never>()
     
     var name: String = "" {
         didSet {
-            didChange.send(())
+            didChange.send(self)
         }
     }
     
     var budget: String = "" {
         didSet {
-            didChange.send(())
+            didChange.send(self)
         }
     }
     
-    lazy var categories: [Category] = {
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
+    var currency: String = "" {
+        didSet {
+            didChange.send(self)
+        }
+    }
+    
+    func addTrip() -> Bool {
+        guard let budget = Double(budget) else {
+            return false
+        }
+        
+        let trip = Trip(name: name, budget: budget, currency: currency)
+        
+        do {
+            try dataStore.addTrip(trip)
+        } catch {
+            print("Error: \(error)")
+            return false
+        }
+        return true
+    }
+    
+    lazy var categories: [CDCategory] = {
+        let request: NSFetchRequest<CDCategory> = CDCategory.fetchRequest()
         
         guard let categories = try? (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.fetch(request) else {
             print("Cannot fetch categories")

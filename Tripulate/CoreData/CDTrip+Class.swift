@@ -11,5 +11,5 @@ import Foundation
 import CoreData
 
 @objc(Trip)
-public class Trip: NSManagedObject {
+public class CDTrip: NSManagedObject {
 }

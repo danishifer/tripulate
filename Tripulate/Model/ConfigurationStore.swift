@@ -7,22 +7,12 @@
 //
 
 import Foundation
+import Combine
 
 protocol ConfigurationStore {
     var activeTripID: String? { get set }
 }
 
-class UserDefaultsConfigurationStore: ConfigurationStore {
-    static let kActiveTripIDKey = "activeTripID"
-    
-    var activeTripID: String? {
-        get {
-            return UserDefaults.standard.string(forKey: Self.kActiveTripIDKey)
-        }
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: Self.kActiveTripIDKey)
-        }
-    }
-    
+extension Notification.Name {
+    static let activeTripDidChange = Notification.Name("activeTripDidChange")
 }
-

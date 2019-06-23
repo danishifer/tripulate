@@ -12,7 +12,11 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let appContainer = TripulateAppDependencyContainer()
+    lazy var appContainer: TripulateAppDependencyContainer = { 
+        return TripulateAppDependencyContainer(
+            dataStore: CoreDataStore(context: persistentContainer.viewContext)
+        )
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !previouslyLaunched {
             UserDefaults.standard.set(true, forKey: "previouslyLaunched")
             
-            Category.insertDefaultData(context: persistentContainer.viewContext)
+            CDCategory.insertDefaultData(context: persistentContainer.viewContext)
             
             self.saveContext()
         }

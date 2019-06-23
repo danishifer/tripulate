@@ -27,9 +27,9 @@ struct TripPickerView : View {
         }
         .listStyle(.grouped)
         .navigationBarTitle(Text("Active Trip"), displayMode: .inline)
-            .navigationBarItems(trailing: PresentationButton(destination: AddTrip()) {
-                Image(systemName: "plus")
-            })
+//        .navigationBarItems(trailing: PresentationButton(destination: AddTrip(isPresented: $showAddTripModal)) {
+//            Image(systemName: "plus")
+//        })
     }
 }
 

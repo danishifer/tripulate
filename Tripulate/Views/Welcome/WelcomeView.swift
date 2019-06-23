@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct WelcomeView : View {
-    @State private var showAddTripModal = false
+    @ObjectBinding var viewModel: WelcomeViewModel
     
     var body: some View {
         NavigationView {
@@ -30,7 +30,7 @@ struct WelcomeView : View {
                 
             
                 Button(action: {
-                    self.showAddTripModal.toggle()
+                    self.viewModel.showAddTripModal.toggle()
                 }) {
                     HStack {
                         Spacer()
@@ -50,15 +50,21 @@ struct WelcomeView : View {
             .padding(.bottom, 50.0)
             .navigationBarTitle(Text(""))
             .navigationBarHidden(true)
-            .presentation(showAddTripModal ? Modal(AddTrip()) : nil)
+            .presentation(
+                viewModel.showAddTripModal ?
+                Modal(viewModel.addTripViewFactory($viewModel.showAddTripModal), onDismiss: {
+                    self.viewModel.showAddTripModal.toggle()
+                }):
+                nil
+            )
         }
     }
 }
 
-#if DEBUG
-struct WelcomeView_Previews : PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
-    }
-}
-#endif
+//#if DEBUG
+//struct WelcomeView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        WelcomeView()
+//    }
+//}
+//#endif

@@ -14,12 +14,12 @@ struct AmountTextField: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
+        textField.text = text
         textField.keyboardType = .decimalPad
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
         
         NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: nil) { (notification) in
             self.text = textField.text ?? ""
-            
         }
         
         return textField

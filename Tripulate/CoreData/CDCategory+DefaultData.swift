@@ -16,7 +16,7 @@ fileprivate struct DefaultCategory: Codable {
     var icon:         String
 }
 
-extension Category {
+extension CDCategory {
     fileprivate static func _getDefaultCategories() -> [DefaultCategory] {
         do {
             let path = Bundle.main.path(forResource: "DefaultCategories", ofType: "plist")
@@ -31,7 +31,7 @@ extension Category {
     public static func insertDefaultData(context: NSManagedObjectContext) {
         let categories = _getDefaultCategories()
         categories.forEach { (data) in
-            let category = Category(context: context)
+            let category = CDCategory(context: context)
             category.internalName = data.internalName
             category.displayName = data.displayName
             category.icon = UIImage(named: data.icon)

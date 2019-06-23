@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension Trip {
+extension CDTrip {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Trip> {
-        return NSFetchRequest<Trip>(entityName: "Trip")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDTrip> {
+        return NSFetchRequest<CDTrip>(entityName: "Trip")
     }
 
     @NSManaged public var budget: Double
@@ -25,13 +25,13 @@ extension Trip {
 }
 
 // MARK: Generated accessors for expenses
-extension Trip {
+extension CDTrip {
 
     @objc(addExpensesObject:)
-    @NSManaged public func addToExpenses(_ value: Expense)
+    @NSManaged public func addToExpenses(_ value: CDExpense)
 
     @objc(removeExpensesObject:)
-    @NSManaged public func removeFromExpenses(_ value: Expense)
+    @NSManaged public func removeFromExpenses(_ value: CDExpense)
 
     @objc(addExpenses:)
     @NSManaged public func addToExpenses(_ values: NSSet)

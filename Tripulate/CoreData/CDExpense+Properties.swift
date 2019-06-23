@@ -11,16 +11,15 @@ import Foundation
 import CoreData
 
 
-extension Expense {
+extension CDExpense {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Expense> {
-        return NSFetchRequest<Expense>(entityName: "Expense")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDExpense> {
+        return NSFetchRequest<CDExpense>(entityName: "Expense")
     }
 
     @NSManaged public var amount: Double
     @NSManaged public var name: String?
     @NSManaged public var categoryId: UUID?
-    @NSManaged public var category: Category?
-    @NSManaged public var trip: Trip?
+    @NSManaged public var trip: CDTrip?
 
 }

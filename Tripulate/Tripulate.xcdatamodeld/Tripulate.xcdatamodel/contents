@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.19" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
-    <entity name="Category" representedClassName="Category" syncable="YES">
+    <entity name="Category" representedClassName="CDCategory" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="."/>
         <attribute name="internalName" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Expense" representedClassName="Expense" syncable="YES">
+    <entity name="Expense" representedClassName="CDExpense" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="categoryId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="expenses" inverseEntity="Trip"/>
     </entity>
-    <entity name="Trip" representedClassName="Trip" syncable="YES">
+    <entity name="Trip" representedClassName="CDTrip" syncable="YES">
         <attribute name="budget" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="currency" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String" maxValueString="20"/>

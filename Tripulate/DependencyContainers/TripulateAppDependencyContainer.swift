@@ -14,16 +14,23 @@ class TripulateAppDependencyContainer {
     // MARK: - Properties
     
     let sharedConfigurationStore: ConfigurationStore
+    let sharedDataStore: DataStore
 
     // MARK: - Methods
     
-    init() {
+    init(dataStore: DataStore) {
         func makeConfigurationStore() -> ConfigurationStore {
             return UserDefaultsConfigurationStore()
         }
         
-        let configurationStore = makeConfigurationStore()
-        self.sharedConfigurationStore = configurationStore
+        self.sharedDataStore = dataStore
+        self.sharedConfigurationStore = makeConfigurationStore()
+    }
+    
+    func makeRootViewModel() -> RootViewModel {
+        return RootViewModel(configurationStore: sharedConfigurationStore, welcomeViewFactory: {
+            return self.makeWelcomeView()
+        })
     }
     
     func makeExpensesViewController() -> UIViewController {
@@ -36,8 +43,22 @@ class TripulateAppDependencyContainer {
         return settingsDependecyContainer.makeSettingsHostingController()
     }
     
+    func makeAddTripViewModel() -> AddTripViewModel {
+        return AddTripViewModel(dataStore: sharedDataStore)
+    }
+    
+    func makeAddTripView(isPresented: Binding<Bool>) -> AddTrip {
+        return AddTrip(viewModel: makeAddTripViewModel(), isPresented: isPresented)
+    }
+    
+    func makeWelcomeViewModel() -> WelcomeViewModel {
+        return WelcomeViewModel { (isPresented) -> AddTrip in
+            return self.makeAddTripView(isPresented: isPresented)
+        }
+    }
+    
     func makeWelcomeView() -> WelcomeView {
-        return WelcomeView()
+        return WelcomeView(viewModel: makeWelcomeViewModel())
     }
 
     

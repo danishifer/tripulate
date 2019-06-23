@@ -10,20 +10,15 @@ import SwiftUI
 import CoreData
 
 struct AddTrip: View {
-    @Environment(\.isPresented) private var isPresented
-    @State private var name: String = ""
-    @State private var budget: String = ""
-    @State private var currency: String = ""
-    
-    let viewModel = AddTripViewModel()
-    
+    @ObjectBinding var viewModel: AddTripViewModel
+    @Binding var isPresented: Bool
     
     var body: some View {
         NavigationView {
             Form {
-                TextField($name, placeholder: Text("Name"))
-                AmountTextField(text: $budget, placeholder: "Budget")
-                Picker(selection: $currency, label: Text("Currency")) {
+                TextField($viewModel.name, placeholder: Text("Name"))
+                AmountTextField(text: $viewModel.budget, placeholder: "Budget")
+                Picker(selection: $viewModel.currency, label: Text("Currency")) {
                     ForEach(self.viewModel.currencies.identified(by: \.code)) { (currency: Currency) in
                         Text(currency.displayName).tag(currency.code)
                     }
@@ -31,7 +26,7 @@ struct AddTrip: View {
             }
             .navigationBarItems(
                 leading: Button(action: {
-                    self.isPresented?.value = false
+                    self.isPresented = false
                 }) {
                     Text("Cancel")
                 },
@@ -42,16 +37,14 @@ struct AddTrip: View {
             )
             .navigationBarTitle(Text("New Trip"), displayMode: .inline)
             .navigationBarBackButtonHidden(true)
-            
-        
         }
     }
 }
 
-#if DEBUG
-struct AddTrip_Previews : PreviewProvider {
-    static var previews: some View {
-        AddTrip()
-    }
-}
-#endif
+//#if DEBUG
+//struct AddTrip_Previews : PreviewProvider {
+//    static var previews: some View {
+//        AddTrip(isPresented: .constant(true))
+//    }
+//}
+//#endif

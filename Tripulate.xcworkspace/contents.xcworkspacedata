@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Targets">
+      <FileRef
+         location = "group:Tripulate_iOS/Tripulate_iOS.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Common">
+      <FileRef
+         location = "group:TripulateKit/TripulateKit.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Storage">
+      <FileRef
+         location = "group:CoreDataStore/CoreDataStore.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UserDefaultsConfigurationStore/UserDefaultsConfigurationStore.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

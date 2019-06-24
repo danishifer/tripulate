@@ -14,6 +14,7 @@ extension CDTrip {
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         
         let trip = Trip(
+            creationDate: self.creationDate,
             name: self.name,
             budget: self.budget,
             currency: self.currency,

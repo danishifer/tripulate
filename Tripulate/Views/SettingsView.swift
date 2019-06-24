@@ -19,7 +19,7 @@ struct SettingsView : View {
                         HStack {
                             Text("Trip")
                             Spacer()
-                            Text("").color(.secondary)
+                            Text(viewModel.activeTripName ?? "").color(.secondary)
                         }
                     }
                 }

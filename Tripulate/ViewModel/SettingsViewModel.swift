@@ -18,6 +18,13 @@ class SettingsViewModel: BindableObject {
     init(dataStore: DataStore, configurationStore: ConfigurationStore) {
         self.dataStore = dataStore
         self.configurationStore = configurationStore
+        
+        let _ = NotificationCenter.default.publisher(for: .activeTripDidChange)
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { _ in
+                self.didChange.send(())
+            })
+        
     }
     
     

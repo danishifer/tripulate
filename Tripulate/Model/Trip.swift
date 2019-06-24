@@ -9,6 +9,7 @@
 import Foundation
 
 struct Trip: Codable {
+    var creationDate: Date = .init()
     var name: String
     var budget: Double
     var currency: String

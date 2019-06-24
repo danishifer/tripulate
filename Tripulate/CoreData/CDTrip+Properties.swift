@@ -17,6 +17,7 @@ extension CDTrip {
         return NSFetchRequest<CDTrip>(entityName: "Trip")
     }
 
+    @NSManaged public var creationDate: Date
     @NSManaged public var budget: Double
     @NSManaged public var currency: String
     @NSManaged public var name: String

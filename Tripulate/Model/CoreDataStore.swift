@@ -18,6 +18,7 @@ class CoreDataStore: DataStore {
     
     func addTrip(_ trip: Trip) throws -> String {
         let cdTrip = CDTrip(context: context)
+        cdTrip.creationDate = trip.creationDate
         cdTrip.name = trip.name
         cdTrip.budget = trip.budget
         cdTrip.currency = trip.currency
@@ -26,7 +27,6 @@ class CoreDataStore: DataStore {
     }
     
     func getTrip(byID id: String) -> Trip? {
-        print(id)
         guard
             let idURL = URL(string: id),
             let coordinator = context.persistentStoreCoordinator,

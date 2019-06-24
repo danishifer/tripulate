@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.19" systemVersion="19A487l" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.19" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName=".CDCategory" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="."/>
@@ -14,6 +14,7 @@
     </entity>
     <entity name="Trip" representedClassName=".CDTrip" syncable="YES">
         <attribute name="budget" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="currency" attributeType="String"/>
         <attribute name="name" attributeType="String" maxValueString="20"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="trip" inverseEntity="Expense"/>
@@ -21,6 +22,6 @@
     <elements>
         <element name="Category" positionX="81" positionY="81" width="128" height="88"/>
         <element name="Expense" positionX="175.65625" positionY="57.16796875" width="128" height="118"/>
-        <element name="Trip" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Trip" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

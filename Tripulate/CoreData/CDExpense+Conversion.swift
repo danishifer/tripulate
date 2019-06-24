@@ -12,6 +12,7 @@ import CoreData
 extension CDExpense {
     func asExpense() -> Expense {
         return Expense(
+            creationDate: self.date,
             amount: self.amount,
             name: self.name ?? "",
             categoryId: self.categoryId

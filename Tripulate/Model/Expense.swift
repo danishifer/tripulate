@@ -9,8 +9,8 @@
 import Foundation
 
 struct Expense: Codable {
+    let creationDate: Date
     var amount: Double
     var name: String
     var categoryId: String
-    
 }

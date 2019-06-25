@@ -12,10 +12,19 @@ import CoreData
 extension CDExpense {
     func toStandardExpense() -> Expense {
         return Expense(
+            id: self.objectID.uriRepresentation().absoluteString,
             creationDate: self.date,
             amount: self.amount,
             name: self.name ?? "",
             categoryId: self.categoryId
         )
+    }
+    
+    convenience init(fromStandardExpense expense: Expense, context: NSManagedObjectContext) {
+        self.init(context: context)
+        self.name = expense.name
+        self.amount = expense.amount
+        self.categoryId = expense.categoryId
+        self.date = expense.creationDate
     }
 }

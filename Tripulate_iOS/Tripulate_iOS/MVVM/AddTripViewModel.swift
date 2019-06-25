@@ -41,6 +41,17 @@ class AddTripViewModel: BindableObject {
         }
     }
     
+    var canAddTrip: Bool {
+        get {
+            return (
+                self.name != "" &&
+                self.budget != "" &&
+                self.currency != "" &&
+                Double(self.budget) != nil
+            )
+        }
+    }
+    
     func addTrip() -> Bool {
         guard let budget = Double(budget) else {
             return false

@@ -7,17 +7,26 @@
 //
 
 import Foundation
+import SwiftUI
 
-public struct Expense: Codable {
+public struct Expense: Codable, Identifiable {
+    public var id: String?
     public let creationDate: Date
     public var amount: Double
-    public var name: String
+    public var name: String?
     public var categoryId: String
     
-    public init(creationDate: Date, amount: Double, name: String, categoryId: String) {
+    public init(id: String?, creationDate: Date, amount: Double, name: String?, categoryId: String) {
+        self.id = id
         self.creationDate = creationDate
         self.amount = amount
         self.name = name
         self.categoryId = categoryId
+    }
+}
+
+extension Expense {
+    public enum Sort: String {
+        case creationDate = "date"
     }
 }

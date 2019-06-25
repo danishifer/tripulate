@@ -16,7 +16,6 @@ extension CDExpenseCategory {
     }
 
     @NSManaged public var icon: UIImage
-    @NSManaged public var internalName: String
     @NSManaged public var displayName: String
 
 }

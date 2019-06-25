@@ -13,6 +13,7 @@ import CoreData
 extension CDTrip {
     func toStandardTrip() -> Trip {
         let trip = Trip(
+            persistentID: self.objectID.uriRepresentation().absoluteString,
             creationDate: self.creationDate,
             name: self.name,
             budget: self.budget,

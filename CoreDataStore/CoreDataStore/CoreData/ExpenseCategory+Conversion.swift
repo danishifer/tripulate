@@ -2,7 +2,7 @@
 //  Category+Conversion.swift
 //  CoreDataStore
 //
-//  Created by Haim Marcovici on 24/06/2019.
+//  Created by Dani Shifer on 24/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import TripulateKit
 extension CDExpenseCategory {
     func toStandardCategory() -> ExpenseCategory {
         return ExpenseCategory(
-            internalName: self.internalName,
+            id: self.objectID.uriRepresentation().absoluteString,
             displayName: self.displayName,
             icon: self.icon
         )

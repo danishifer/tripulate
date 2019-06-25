@@ -21,6 +21,13 @@ extension Currency {
     }
     
     public static var all: [Currency] = {
+        print("Get default currencies")
        return Currency.getDefaultCurrencies()
     }()
+    
+    public static func from(code: String) -> Currency? {
+        return Currency.all.first { (currency: Currency) -> Bool in
+            return currency.code == code
+        }
+    }
 }

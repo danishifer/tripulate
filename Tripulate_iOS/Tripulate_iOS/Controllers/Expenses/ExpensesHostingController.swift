@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-class ExpensesHostingController: UIHostingController<ContentView> {
-    override init(rootView: ContentView) {
+class ExpensesHostingController: UIHostingController<ExpensesView.WithViewModel> {
+    override init(rootView: ExpensesView.WithViewModel) {
         super.init(rootView: rootView)
         
         let searchController = UISearchController(searchResultsController: nil)

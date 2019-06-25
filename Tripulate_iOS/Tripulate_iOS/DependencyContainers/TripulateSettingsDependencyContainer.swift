@@ -16,19 +16,33 @@ class TripulateSettingsDependencyContainer {
     // From parent container
     let sharedConfigurationStore: ConfigurationStore
     let sharedDataStore: DataStore
+    let addTripViewFactory: (@escaping () -> Void) -> AddTrip.WithViewModel
     
     // MARK: - Methods
     init(appDependencyContainer: TripulateAppDependencyContainer) {
         self.sharedConfigurationStore = appDependencyContainer.sharedConfigurationStore
         self.sharedDataStore = appDependencyContainer.sharedDataStore
+        self.addTripViewFactory = appDependencyContainer.makeAddTripView
     }
     
     func makeSettingsHostingController() -> UIHostingController<SettingsView> {
         return SettingsHostingController(rootView: makeSettingsView())
     }
     
+    func makeTripPickerViewModel() -> TripPickerViewModel {
+        return TripPickerViewModel(
+            configurationStore: sharedConfigurationStore,
+            dataStore: sharedDataStore,
+            addTripViewFactory: addTripViewFactory
+        )
+    }
+    
+    func makeTripPickerView() -> TripPickerView.WithViewModel {
+        return TripPickerView().environmentObject(makeTripPickerViewModel())
+    }
+    
     func makeSettingsView() -> SettingsView {
-        return SettingsView(viewModel: makeSettingsViewModel())
+        return SettingsView(viewModel: makeSettingsViewModel(), tripPickerView: makeTripPickerView())
     }
     
     func makeSettingsViewModel() -> SettingsViewModel {

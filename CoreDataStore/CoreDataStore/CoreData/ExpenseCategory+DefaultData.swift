@@ -11,7 +11,6 @@ import UIKit
 
 fileprivate struct DefaultCategory: Codable {
     var displayName:  String
-    var internalName: String
     var icon:         String
 }
 
@@ -31,7 +30,6 @@ extension CDExpenseCategory {
         let categories = _getDefaultCategories()
         categories.forEach { (data) in
             let category = CDExpenseCategory(context: context)
-            category.internalName = data.internalName
             category.displayName = data.displayName
             category.icon = UIImage(named: data.icon)!
         }

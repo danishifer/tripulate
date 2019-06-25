@@ -10,12 +10,13 @@ import SwiftUI
 
 struct SettingsView : View {
     @ObjectBinding var viewModel: SettingsViewModel
-    
+    let tripPickerView: TripPickerView.WithViewModel
+
     var body: some View {
         NavigationView {
             Form {
                 Section(footer: Text("Select the active trip or create a new one").color(.gray)) {
-                    NavigationButton(destination: TripPickerView()) {
+                    NavigationButton(destination: tripPickerView) {
                         HStack {
                             Text("Trip")
                             Spacer()

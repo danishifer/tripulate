@@ -26,29 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let contentHostingController = UIHostingController(rootView: ContentView())
-        
-        let expensesNavigationController = UINavigationController(rootViewController: contentHostingController)
-        expensesNavigationController.navigationBar.prefersLargeTitles = true
-        expensesNavigationController.tabBarItem = UITabBarItem(title: "Expenses", image: UIImage(systemName: "tray.full"), tag: 1)
-        
-        let statisticsHostingController = UIHostingController(rootView: StatisticsView())
-        statisticsHostingController.tabBarItem = UITabBarItem(title: "Statistics", image: UIImage(systemName: "chart.bar"), tag: 0)
-        
-        
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Expenses"
-        
-        contentHostingController.navigationItem.searchController = searchController
-        contentHostingController.definesPresentationContext = true
-        
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [statisticsHostingController, expensesNavigationController]
-        tabBarController.selectedIndex = 2
-        
-        window.rootViewController = tabBarController
-    
         
         window.rootViewController = UIHostingController(rootView: RootView(
             controller: MainViewController(
@@ -56,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     appDelegate.appContainer.makeExpensesViewController(),
                     appDelegate.appContainer.makeSettingsViewController()
                 ],
-                defaultTabIndex: 1
+                defaultTabIndex: 0
             )
         ).environmentObject(appDelegate.appContainer.makeRootViewModel()))
         

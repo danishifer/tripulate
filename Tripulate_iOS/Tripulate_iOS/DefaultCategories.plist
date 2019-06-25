@@ -5,48 +5,36 @@
 	<dict>
 		<key>displayName</key>
 		<string>Transportation</string>
-		<key>internalName</key>
-		<string>transportation</string>
 		<key>icon</key>
 		<string>category-transportation</string>
 	</dict>
 	<dict>
 		<key>displayName</key>
 		<string>Lodging</string>
-		<key>internalName</key>
-		<string>lodging</string>
 		<key>icon</key>
 		<string>category-lodging</string>
 	</dict>
 	<dict>
 		<key>displayName</key>
 		<string>Food &amp; Drink</string>
-		<key>internalName</key>
-		<string>fooddrink</string>
 		<key>icon</key>
 		<string>category-fooddrink</string>
 	</dict>
 	<dict>
 		<key>displayName</key>
 		<string>Shopping</string>
-		<key>internalName</key>
-		<string>shopping</string>
 		<key>icon</key>
 		<string>category-shopping</string>
 	</dict>
 	<dict>
 		<key>displayName</key>
 		<string>Attractions</string>
-		<key>internalName</key>
-		<string>attractions</string>
 		<key>icon</key>
 		<string>category-attractions</string>
 	</dict>
 	<dict>
 		<key>displayName</key>
 		<string>Other</string>
-		<key>internalName</key>
-		<string>other</string>
 		<key>icon</key>
 		<string>category-other</string>
 	</dict>

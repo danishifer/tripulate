@@ -18,7 +18,7 @@ struct AddTrip: View {
         NavigationView {
             Form {
                 TextField($viewModel.name, placeholder: Text("Name"))
-                AmountTextField(text: $viewModel.budget, placeholder: "Budget")
+                DecimalTextField(text: $viewModel.budget, placeholder: "Budget")
                 Picker(selection: $viewModel.currency, label: Text("Currency")) {
                     ForEach(self.viewModel.currencies.identified(by: \.code)) { (currency: Currency) in
                         Text(currency.displayName).tag(currency.code)
@@ -32,14 +32,15 @@ struct AddTrip: View {
                     Text("Cancel")
                 },
                 trailing: Button(action: {
-                    if self.viewModel.addTrip() {
-                        self.onDismiss()
-                    } else {
+                    guard self.viewModel.addTrip() == true else {
                         print("Couldn't add trip")
+                        return
                     }
+                    
+                    self.onDismiss()
                 }) {
                     Text("Add")
-                }
+                }.disabled(!viewModel.canAddTrip)
             )
             .navigationBarTitle(Text("New Trip"), displayMode: .inline)
             .navigationBarBackButtonHidden(true)

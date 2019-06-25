@@ -10,7 +10,6 @@
     <entity name="ExpenseCategory" representedClassName="CoreDataStore.CDExpenseCategory" syncable="YES">
         <attribute name="displayName" attributeType="String"/>
         <attribute name="icon" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="."/>
-        <attribute name="internalName" attributeType="String"/>
     </entity>
     <entity name="Trip" representedClassName="CoreDataStore.CDTrip" syncable="YES">
         <attribute name="budget" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -20,8 +19,8 @@
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="trip" inverseEntity="Expense"/>
     </entity>
     <elements>
-        <element name="ExpenseCategory" positionX="81" positionY="81" width="128" height="88"/>
         <element name="Expense" positionX="175.65625" positionY="57.16796875" width="128" height="118"/>
+        <element name="ExpenseCategory" positionX="81" positionY="81" width="128" height="73"/>
         <element name="Trip" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

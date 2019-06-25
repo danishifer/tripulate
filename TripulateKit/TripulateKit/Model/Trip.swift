@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import SwiftUI
 
-public struct Trip: Codable {
+public struct Trip: Codable, Identifiable {
+    public var id: String? {
+        get {
+            return self.persistentID
+        }
+    }
+    
+    public var persistentID: String?
     public var creationDate: Date
     public var name: String
     public var budget: Double
@@ -16,6 +24,7 @@ public struct Trip: Codable {
     public var expenses: [Expense]
 
     public init(
+        persistentID: String? = nil,
         creationDate: Date = .init(),
         name: String,
         budget: Double,
@@ -27,5 +36,13 @@ public struct Trip: Codable {
         self.currency = currency
         self.expenses = expenses
         self.creationDate = creationDate
+        self.persistentID = persistentID
+    }
+}
+
+
+extension Trip {
+    public enum Sort: String {
+        case creationDate = "creationDate"
     }
 }

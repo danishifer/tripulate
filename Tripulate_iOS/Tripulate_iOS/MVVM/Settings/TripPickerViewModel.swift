@@ -36,6 +36,8 @@ class TripPickerViewModel: BindableObject {
                 self.activeTripId = self.configurationStore.activeTripID
                 self.didChange.send(())
             }
+        
+        self.loadTrips()
     }
     
     func setActiveTrip(trip: Trip) {
@@ -53,15 +55,25 @@ class TripPickerViewModel: BindableObject {
        return self.configurationStore.activeTripID
     }()
     
-    lazy var trips: [Trip] = {
-        return self.dataStore.getTrips(sortedBy: .creationDate)
-    }()
+    var trips = [Trip]() {
+        didSet {
+            self.didChange.send(())
+        }
+    }
     
     lazy var addTripView: AddTrip.WithViewModel = {
         return self.addTripViewFactory {
-            self.trips = self.dataStore.getTrips(sortedBy: .creationDate)
-            self.didChange.send(())
             self.showAddTripModal = false
+            self.loadTrips()
         }
     }()
+    
+    private func loadTrips() {
+        DispatchQueue(label: "LoadTrips", qos: .background).async {
+            let trips = self.dataStore.getTrips(sortedBy: .creationDate)
+            DispatchQueue.main.async {
+                self.trips = trips
+            }
+        }
+    }
 }

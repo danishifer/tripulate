@@ -20,10 +20,7 @@ extension Currency {
         }
     }
     
-    public static var all: [Currency] = {
-        print("Get default currencies")
-       return Currency.getDefaultCurrencies()
-    }()
+    public static var all: [Currency] = Currency.getDefaultCurrencies()
     
     public static func from(code: String) -> Currency? {
         return Currency.all.first { (currency: Currency) -> Bool in

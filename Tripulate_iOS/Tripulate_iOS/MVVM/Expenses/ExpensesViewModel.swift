@@ -68,7 +68,11 @@ class ExpensesViewModel: BindableObject {
         return Currency.from(code: trip.currency)
     }()
     
-    lazy var expenses = [[Expense]]()
+    var expenses = [[Expense]]() {
+        didSet {
+            self.didChange.send(())
+        }
+    }
     
     private func partitionExpenses(_ expenses: [Expense]) -> [[Expense]] {
         if (expenses.count == 0) { return [] }
@@ -91,9 +95,15 @@ class ExpensesViewModel: BindableObject {
     }
     
     private func loadExpenses() {
-        guard let trip = self.trip else { return }
-        let expenses = self.dataStore.getExpenses(ofTrip: trip, sortedBy: .creationDate)
-        self.expenses = partitionExpenses(expenses)
+        DispatchQueue(label: "LoadExpenses", qos: .background).async {
+            guard let trip = self.trip else { return }
+            let expenses = self.dataStore.getExpenses(ofTrip: trip, sortedBy: .creationDate)
+            let partitioned = self.partitionExpenses(expenses)
+            
+            DispatchQueue.main.async {
+                self.expenses = partitioned
+            }
+        }
     }
 }
 

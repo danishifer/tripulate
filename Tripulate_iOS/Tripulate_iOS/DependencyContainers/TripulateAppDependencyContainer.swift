@@ -36,6 +36,11 @@ class TripulateAppDependencyContainer {
         )
     }
     
+    func makeStatisticsViewController() -> UIViewController {
+        let statisticsDependencyContainer = TripulateStatisticsDependencyContainer(appDependencyContainer: self)
+        return statisticsDependencyContainer.makeStatisticsViewController()
+    }
+    
     func makeExpensesViewController() -> UIViewController {
         let expensesDependencyContainer = TripulateExpensesDependencyContainer(appDependencyContainer: self)
         return expensesDependencyContainer.makeExpensesNavigationController()

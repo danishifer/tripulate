@@ -22,6 +22,6 @@ public protocol DataStore {
     
     // MARK: - Expense
     func addExpense(_ expense: Expense, toTrip trip: Trip) throws -> String
-    
     func getExpenses(ofTrip trip: Trip, sortedBy: Expense.Sort, ascending: Bool) -> [Expense]
+    func removeExpense(_ expense: Expense) throws
 }

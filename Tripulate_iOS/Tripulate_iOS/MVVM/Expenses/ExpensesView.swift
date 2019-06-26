@@ -13,9 +13,8 @@ struct ExpensesView : View {
     @EnvironmentObject var viewModel: ExpensesViewModel
     
     var body: some View {
-        
         List {
-            ForEach(self.viewModel.expenses.identified(by: \.[0])) { (section: [Expense]) in
+            ForEach(self.viewModel.expenses.identified(by: \.self)) { (section: [Expense]) in
                 Section(header: HStack {
                     Text(self.viewModel.dateFormatter.string(from: section[0].creationDate))
                         .font(.headline)
@@ -25,7 +24,7 @@ struct ExpensesView : View {
                     Text("$200")
                 }) {
                     ForEach(section) { (expense: Expense) in
-                        return HStack {
+                        HStack {
                             VStack(alignment: .leading) {
                                 Text(expense.name ?? "")
                                 
@@ -48,7 +47,6 @@ struct ExpensesView : View {
                         }
                     }
                 }
-                
             }
         }
         .listStyle(.grouped)

@@ -30,8 +30,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UIHostingController(rootView: RootView(
             controller: MainViewController(
                 viewControllers: [
+                    appDelegate.appContainer.makeStatisticsViewController(),
                     appDelegate.appContainer.makeExpensesViewController(),
-                    appDelegate.appContainer.makeSettingsViewController()
+                    appDelegate.appContainer.makeSettingsViewController(),
                 ],
                 defaultTabIndex: 0
             )

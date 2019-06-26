@@ -10,6 +10,19 @@ import CoreData
 import TripulateKit
 
 extension CoreDataStore {
+    func getCDExpense(byID id: String) -> CDExpense? {
+        guard
+            let idURL = URL(string: id),
+            let coordinator = context.persistentStoreCoordinator,
+            let managedObjectID = coordinator.managedObjectID(forURIRepresentation: idURL)
+            else {
+                print("[Tripulate] [CoreDataStore] [getCDExpense] Cannot get CDExpense with id \(id)")
+                return nil
+        }
+        
+        return context.object(with: managedObjectID) as? CDExpense
+    }
+    
     public func getExpenses(ofTrip trip: Trip, sortedBy: Expense.Sort, ascending: Bool) -> [Expense] {
         guard let tripID = trip.id else {
             print("[Tripulate] [CoreDataStore] [getExpenses] trip.id is nil")
@@ -57,5 +70,20 @@ extension CoreDataStore {
         }
         
         return cdExpense.objectID.uriRepresentation().absoluteString
+    }
+    
+    public func removeExpense(_ expense: Expense) throws {
+        guard let expenseID = expense.id else {
+            print("[Tripulate] [CoreDataStore] [removeExpense] expense.id is nil")
+            throw CoreDataStoreError.noIDFound
+        }
+        
+        guard let cdExpense = getCDExpense(byID: expenseID) else {
+            throw CoreDataStoreError.objectNotFound
+        }
+        
+        context.delete(cdExpense)
+        
+        return try context.save()
     }
 }

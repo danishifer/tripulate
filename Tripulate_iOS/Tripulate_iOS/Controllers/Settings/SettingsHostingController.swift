@@ -12,7 +12,7 @@ class SettingsHostingController: UIHostingController<SettingsView> {
     override init(rootView: SettingsView) {
         super.init(rootView: rootView)
         
-        self.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
+        self.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
     }
     
     @objc required dynamic init?(coder aDecoder: NSCoder) {

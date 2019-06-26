@@ -15,34 +15,40 @@ struct ExpensesView : View {
     var body: some View {
         
         List {
-            Section(header: HStack {
-                Text("Today")
-                    .font(.headline)
-                
-                Spacer()
-                
-                Text("$200")
-            }) {
-                ForEach(self.viewModel.expenses) { (expense: Expense) in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(expense.name ?? "")
+            ForEach(self.viewModel.expenses.identified(by: \.[0])) { (section: [Expense]) in
+                Section(header: HStack {
+                    Text(self.viewModel.dateFormatter.string(from: section[0].creationDate))
+                        .font(.headline)
+                    
+                    Spacer()
+                    
+                    Text("$200")
+                }) {
+                    ForEach(section) { (expense: Expense) in
+                        return HStack {
+                            VStack(alignment: .leading) {
+                                Text(expense.name ?? "")
+                                
+                                Text({ () -> String in
+                                    let formatter = DateFormatter()
+                                    formatter.timeStyle = .short
+                                    return formatter.string(from: expense.creationDate)
+                                }())
+                                .font(.caption)
+                                .color(.secondary)
+                            }
                             
-                            Text({ () -> String in
-                                let formatter = DateFormatter()
-                                formatter.timeStyle = .short
-                                return formatter.string(from: expense.creationDate)
-                            }())
-                            .font(.caption)
-                            .color(.secondary)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(String(format: "%.02f", expense.amount))
+                            Spacer()
+                            
+                            Text([
+                                "\(self.viewModel.currency?.symbol ?? "")",
+                                self.viewModel.numberFormatter.string(for: expense.amount) ?? ""
+                            ].joined())
                             .font(.headline)
+                        }
                     }
                 }
+                
             }
         }
         .listStyle(.grouped)

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public struct Expense: Codable, Identifiable {
+public struct Expense: Codable, Identifiable, Hashable {
     public var id: String?
     public let creationDate: Date
     public var amount: Double

@@ -2,7 +2,7 @@
 //  ExpensesViewModel.swift
 //  Tripulate_iOS
 //
-//  Created by Haim Marcovici on 25/06/2019.
+//  Created by Dani Shifer on 25/06/2019.
 //  Copyright © 2019 Dani Shifer. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ class ExpensesViewModel: BindableObject {
     let addExpenseViewFactory: (@escaping () -> Void) -> AddExpenseView.WithViewModel
     
     let dateFormatter: DateFormatter
+    let numberFormatter: NumberFormatter
     
     init(
         configurationStore: ConfigurationStore,
@@ -27,9 +28,15 @@ class ExpensesViewModel: BindableObject {
         self.configurationStore = configurationStore
         self.dataStore = dataStore
         self.addExpenseViewFactory = addExpenseViewFactory
-        
         self.dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .medium
+        dateFormatter.doesRelativeDateFormatting = true
+        self.numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.roundingMode = .halfUp
+        numberFormatter.maximumFractionDigits = 2
+        
+        self.loadExpenses()
     }
     
     var showAddExpenseView: Bool = false {
@@ -40,7 +47,7 @@ class ExpensesViewModel: BindableObject {
     
     lazy var addExpenseView: AddExpenseView.WithViewModel = {
         return self.addExpenseViewFactory {
-            self.expenses = self.loadExpenses()
+            self.loadExpenses()
             self.showAddExpenseView = false
         }
     }()
@@ -53,11 +60,40 @@ class ExpensesViewModel: BindableObject {
         return self.dataStore.getTrip(byID: activeTripID)
     }()
     
-    lazy var expenses: [Expense] = self.loadExpenses()
+    lazy var currency: Currency? = {
+        guard let trip = self.trip else {
+            return nil
+        }
+        
+        return Currency.from(code: trip.currency)
+    }()
     
-    private func loadExpenses() -> [Expense] {
-        guard let trip = self.trip else { return [] }
-        return self.dataStore.getExpenses(ofTrip: trip, sortedBy: .creationDate)
+    lazy var expenses = [[Expense]]()
+    
+    private func partitionExpenses(_ expenses: [Expense]) -> [[Expense]] {
+        if (expenses.count == 0) { return [] }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        
+        var to = [[expenses[0]]]
+        for i in 1..<expenses.count {
+            let prev = expenses[i - 1]
+            let curr = expenses[i]
+            
+            if formatter.string(from: prev.creationDate) != formatter.string(from: curr.creationDate) {
+                to.append([])
+            }
+            
+            to[to.count - 1].append(curr)
+        }
+        return to
+    }
+    
+    private func loadExpenses() {
+        guard let trip = self.trip else { return }
+        let expenses = self.dataStore.getExpenses(ofTrip: trip, sortedBy: .creationDate)
+        self.expenses = partitionExpenses(expenses)
     }
 }
 

@@ -8,7 +8,11 @@
 
 import SwiftUI
 
-class ExpensesHostingController: UIHostingController<ExpensesView.WithViewModel> {
+class ExpensesHostingController: UIHostingController<ExpensesView.WithViewModel>, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+//        print(searchController.searchBar.text)
+    }
+    
     override init(rootView: ExpensesView.WithViewModel) {
         super.init(rootView: rootView)
         
@@ -16,6 +20,7 @@ class ExpensesHostingController: UIHostingController<ExpensesView.WithViewModel>
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Expenses"
         
+        searchController.searchResultsUpdater = self
         self.navigationItem.searchController = searchController
         self.tabBarItem = UITabBarItem(title: "Expenses", image: UIImage(systemName: "tray.full"), tag: 1)
         self.definesPresentationContext = true
@@ -25,4 +30,6 @@ class ExpensesHostingController: UIHostingController<ExpensesView.WithViewModel>
     @objc required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }

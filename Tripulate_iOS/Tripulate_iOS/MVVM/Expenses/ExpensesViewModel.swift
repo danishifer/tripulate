@@ -36,6 +36,13 @@ class ExpensesViewModel: BindableObject {
         numberFormatter.roundingMode = .halfUp
         numberFormatter.maximumFractionDigits = 2
         
+        let _ = NotificationCenter.default.publisher(for: .activeTripDidChange)
+            .receive(on: RunLoop.main)
+            .sink { _ in
+                self.trip = self.loadTrip()
+                self.loadExpenses()
+            }
+        
         self.loadExpenses()
     }
     
@@ -52,13 +59,15 @@ class ExpensesViewModel: BindableObject {
         }
     }()
     
-    lazy var trip: Trip? = {
+    lazy var trip: Trip? = self.loadTrip()
+    
+    private func loadTrip() -> Trip? {
         guard let activeTripID = self.configurationStore.activeTripID else {
             return nil
         }
         
         return self.dataStore.getTrip(byID: activeTripID)
-    }()
+    }
     
     lazy var currency: Currency? = {
         guard let trip = self.trip else {

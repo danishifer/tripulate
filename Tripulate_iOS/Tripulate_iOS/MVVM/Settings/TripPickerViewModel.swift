@@ -69,11 +69,8 @@ class TripPickerViewModel: BindableObject {
     }()
     
     private func loadTrips() {
-        DispatchQueue(label: "LoadTrips", qos: .background).async {
-            let trips = self.dataStore.getTrips(sortedBy: .creationDate)
-            DispatchQueue.main.async {
-                self.trips = trips
-            }
+        self.dataStore.getTrips(sortedBy: .creationDate, ascending: false) { trips in
+            self.trips = trips
         }
     }
 }

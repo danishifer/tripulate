@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1053DC7622C37A140006150B /* CoreDataStore+Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053DC7522C37A140006150B /* CoreDataStore+Trip.swift */; };
+		1053DC7822C37A710006150B /* CoreDataStore+Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053DC7722C37A710006150B /* CoreDataStore+Expense.swift */; };
 		B816231B22C115B2009B0CAF /* Tripulate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B816231922C115B2009B0CAF /* Tripulate.xcdatamodeld */; };
 		B88678CF22C0C488003C1515 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88678CE22C0C488003C1515 /* CoreDataStore.swift */; };
 		B886791B22C0C704003C1515 /* TripulateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B886791A22C0C704003C1515 /* TripulateKit.framework */; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1053DC7522C37A140006150B /* CoreDataStore+Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStore+Trip.swift"; sourceTree = "<group>"; };
+		1053DC7722C37A710006150B /* CoreDataStore+Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStore+Expense.swift"; sourceTree = "<group>"; };
 		B816231A22C115B2009B0CAF /* Tripulate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tripulate.xcdatamodel; sourceTree = "<group>"; };
 		B88678CE22C0C488003C1515 /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		B886791A22C0C704003C1515 /* TripulateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TripulateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,8 @@
 				B8F3129B22C0C36400E9B649 /* Transformers */,
 				B8F3128622C0C35C00E9B649 /* CoreData */,
 				B88678CE22C0C488003C1515 /* CoreDataStore.swift */,
+				1053DC7522C37A140006150B /* CoreDataStore+Trip.swift */,
+				1053DC7722C37A710006150B /* CoreDataStore+Expense.swift */,
 				B8F3126822C0C31C00E9B649 /* CoreDataStore.h */,
 				B8F3126922C0C31C00E9B649 /* Info.plist */,
 				B816231922C115B2009B0CAF /* Tripulate.xcdatamodeld */,
@@ -289,6 +295,8 @@
 				B8F3129522C0C35C00E9B649 /* Expense+Conversion.swift in Sources */,
 				B8F3129622C0C35C00E9B649 /* ExpenseCategory+DefaultData.swift in Sources */,
 				B8F3129922C0C35C00E9B649 /* Trip+Conversion.swift in Sources */,
+				1053DC7622C37A140006150B /* CoreDataStore+Trip.swift in Sources */,
+				1053DC7822C37A710006150B /* CoreDataStore+Expense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

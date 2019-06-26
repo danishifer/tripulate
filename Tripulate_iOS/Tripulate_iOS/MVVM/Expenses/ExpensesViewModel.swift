@@ -106,7 +106,12 @@ class ExpensesViewModel: BindableObject {
     private func loadExpenses() {
         DispatchQueue(label: "LoadExpenses", qos: .background).async {
             guard let trip = self.trip else { return }
-            let expenses = self.dataStore.getExpenses(ofTrip: trip, sortedBy: .creationDate)
+            let expenses = self.dataStore.getExpenses(
+                ofTrip: trip,
+                sortedBy: .creationDate,
+                ascending: false
+            )
+            
             let partitioned = self.partitionExpenses(expenses)
             
             DispatchQueue.main.async {

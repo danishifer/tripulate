@@ -35,25 +35,29 @@ struct StatisticsView : View {
                             Text("All Trip").tag(2)
                         }
                         
-                        HStack(alignment: .bottom) {
-                            VStack {
-                                Capsule()
-                                    .fill(Color.gray)
-                                    .frame(width: 28, height: 60, alignment: .bottom)
-                                
-                                Image("category-transportation")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                            }
-                            
-                            VStack {
-                                Capsule()
-                                    .fill(Color.gray)
-                                    .frame(width: 28, height: 40, alignment: .bottom)
-                                
-                                Image("category-shopping")
-                            }
-                        }
+                        BarGraph(data: [
+                            BarData(value: 11, label: Image("category-shopping"))
+                        ]).frame(height: 250)
+                        
+//                        HStack(alignment: .bottom) {
+//                            VStack {
+//                                Capsule()
+//                                    .fill(Color.gray)
+//                                    .frame(width: 28, height: 60, alignment: .bottom)
+//
+//                                Image("category-transportation")
+//                                    .resizable()
+//                                    .frame(width: 24, height: 24)
+//                            }
+//
+//                            VStack {
+//                                Capsule()
+//                                    .fill(Color.gray)
+//                                    .frame(width: 28, height: 40, alignment: .bottom)
+//
+//                                Image("category-shopping")
+//                            }
+//                        }
                     }
                 }
                 

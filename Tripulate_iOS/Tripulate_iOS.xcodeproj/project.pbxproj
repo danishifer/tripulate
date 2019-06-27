@@ -26,6 +26,7 @@
 		B81E7E3922B9035600BBAB72 /* TripPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E7E3822B9035600BBAB72 /* TripPickerView.swift */; };
 		B81E7E3B22B904B100BBAB72 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81E7E3A22B904B100BBAB72 /* AddTripView.swift */; };
 		B81E7E4322B9336900BBAB72 /* Currencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = B81E7E4222B9336900BBAB72 /* Currencies.plist */; };
+		B8259BBA22C3B757003F6EED /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8259BB922C3B757003F6EED /* BarGraph.swift */; };
 		B868629F22C2209000AE7362 /* TripPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868629E22C2209000AE7362 /* TripPickerViewModel.swift */; };
 		B886791F22C0C71D003C1515 /* TripulateKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B886791E22C0C71D003C1515 /* TripulateKit.framework */; };
 		B886792022C0C71D003C1515 /* TripulateKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B886791E22C0C71D003C1515 /* TripulateKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -104,6 +105,7 @@
 		B81E7E3822B9035600BBAB72 /* TripPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPickerView.swift; sourceTree = "<group>"; };
 		B81E7E3A22B904B100BBAB72 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		B81E7E4222B9336900BBAB72 /* Currencies.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Currencies.plist; sourceTree = "<group>"; };
+		B8259BB922C3B757003F6EED /* BarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		B868629E22C2209000AE7362 /* TripPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPickerViewModel.swift; sourceTree = "<group>"; };
 		B886791E22C0C71D003C1515 /* TripulateKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TripulateKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B886795822C0FB0A003C1515 /* UserDefaultsConfigurationStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UserDefaultsConfigurationStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				B89B65E422B7CBEF00EE750C /* DecimalTextField.swift */,
+				B8259BB922C3B757003F6EED /* BarGraph.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				B89B659222B7B53B00EE750C /* SceneDelegate.swift in Sources */,
 				105796B822BD581400355614 /* RootViewModel.swift in Sources */,
 				B868629F22C2209000AE7362 /* TripPickerViewModel.swift in Sources */,
+				B8259BBA22C3B757003F6EED /* BarGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

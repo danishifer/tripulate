@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import TripulateKit
 
 struct StatisticsView : View {
     @EnvironmentObject var viewModel: StatisticsViewModel
@@ -34,10 +35,10 @@ struct StatisticsView : View {
                             Text("Weekly").tag(1)
                             Text("All Trip").tag(2)
                         }
+//
                         
-                        BarGraph(data: [
-                            BarData(value: 11, label: Image("category-shopping"))
-                        ]).frame(height: 250)
+                        BarGraph(data: self.viewModel.categoriesDistibution).frame(height: 250)
+                        
                         
 //                        HStack(alignment: .bottom) {
 //                            VStack {

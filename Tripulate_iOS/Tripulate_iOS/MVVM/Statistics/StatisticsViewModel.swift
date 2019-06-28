@@ -47,6 +47,40 @@ class StatisticsViewModel: BindableObject {
     
     lazy var trip: Trip? = self.loadTrip()
     
+    lazy var categories: [ExpenseCategory] = {
+        return self.dataStore.getExpenseCategories()
+    }()
+    
+    var categoriesDistibution: [BarData] {
+        get {
+            let categoriesSum = self.loadCategoriesSum()
+            
+            return self.categories.map { (category: ExpenseCategory) -> BarData in
+                let sum = categoriesSum[category.id!] ?? 0.0
+                return BarData(
+                    id: category.id,
+                    value: sum,
+                    label: Text(numberFormatter.string(for: sum)!),
+                    icon: Image(uiImage: category.icon)
+                )
+            }
+        }
+    }
+    
+    func loadCategoriesSum() -> [String: Double] {
+        var result = [String: Double]()
+        
+        for expense in expenses {
+            if result[expense.categoryId] == nil {
+                result[expense.categoryId] = 0.0
+            }
+            
+            result[expense.categoryId]! += expense.amount
+        }
+        
+        return result
+    }
+    
     var expenses = [Expense]() {
         didSet {
             self.didChange.send(())

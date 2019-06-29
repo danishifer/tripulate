@@ -8,26 +8,29 @@
 
 import SwiftUI
 
-struct BarData: Identifiable {
+struct BarData<Label>: Identifiable where Label: View {
     var id: String?
     var value: Double
-    var label: Text
-    var icon: Image?
+    var label: Label
 }
 
-struct BarGraph : View {
-    let data: [BarData]
+
+struct BarGraph<Label> : View where Label: View {
+    let data: [BarData<Label>]
     let kBarSpacing: Length = 16.0
     var idealBarWidth: Length = 30.0
     
     var body: some View {
-        let minimum = data.min(by: { (rhs, lhs) -> Bool in
-            return rhs.value < lhs.value
-        })!
-        
-        var maximum = data.max(by: { (rhs, lhs) -> Bool in
-            return rhs.value < lhs.value
-        })!
+        guard
+            let minimum = data.min(by: { (rhs, lhs) -> Bool in
+                return rhs.value < lhs.value
+            }),
+            var maximum = data.max(by: { (rhs, lhs) -> Bool in
+                return rhs.value < lhs.value
+            })
+        else {
+            return AnyView(Text("No Statistics"))
+        }
         
         // Compensate for maximum and minimum values
         // being the same resulting in division by 0
@@ -35,7 +38,7 @@ struct BarGraph : View {
             maximum.value = minimum.value + 0.0001
         }
         
-        return GeometryReader { geometry in
+        return AnyView(GeometryReader { geometry in
             HStack(alignment: .bottom) {
                 ScrollView(showsHorizontalIndicator: false) {
                     HStack(alignment: .bottom, spacing: self.kBarSpacing) {
@@ -44,39 +47,33 @@ struct BarGraph : View {
                                 GeometryReader { proxy in
                                     VStack {
                                         Spacer()
-
-                                        Capsule()
-                                            .fill(Color.gray)
+                                        
+                                        Rectangle()
+                                            .fill(Color.accentColor)
                                             .frame(height: { () -> Length in
                                                 let slope = (proxy.size.height - 20) / CGFloat(maximum.value - minimum.value)
                                                 return slope * CGFloat(bar.value)
                                             }(), alignment: .bottom)
                                             .layoutPriority(1)
                                     }
-                                }.layoutPriority(1)
-
-                                if (bar.icon != nil) {
-                                    bar.icon.padding(.top, 10)
-                                }
+                                    }.layoutPriority(1)
                                 
                                 bar.label
-                                    .font(.caption)
-                                    .color(.secondary)
-                                    .padding(.top, 2)
                             }
                         }
-                    }
-                    .padding(.horizontal, max(
-                        0,
-                        geometry.size.width
-                            - self.idealBarWidth * CGFloat(self.data.count)
-                            - self.kBarSpacing * CGFloat(self.data.count + 1)
-                        ) / 2
-                    )
-                    .frame(minWidth: geometry.size.width, minHeight: geometry.size.height)
+                        }
+                        .padding(.horizontal, max(
+                            0,
+                            geometry.size.width
+                                - self.idealBarWidth * CGFloat(self.data.count)
+                                - self.kBarSpacing * CGFloat(self.data.count + 1)
+                            ) / 2
+                        )
+                        .frame(minWidth: geometry.size.width, minHeight: geometry.size.height)
+                    
                 }
             }
-        }
+        })
     }
 }
 
@@ -84,7 +81,7 @@ struct BarGraph : View {
 struct BarGraph_Previews : PreviewProvider {
     static var previews: some View {
         BarGraph(data: [
-            BarData(value: 10, label: Text("300"), icon: Image("category-shopping"))
+            BarData(value: 10, label: Text("300"))
         ])
     }
 }

@@ -12,6 +12,8 @@
 		1053DC7E22C3955A0006150B /* TripulateStatisticsDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1053DC7D22C3955A0006150B /* TripulateStatisticsDependencyContainer.swift */; };
 		105796B822BD581400355614 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105796B722BD581400355614 /* RootViewModel.swift */; };
 		105796C422BE0AC800355614 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105796C322BE0AC800355614 /* WelcomeViewModel.swift */; };
+		10B4479322C75B5A00A23178 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4479222C75B5A00A23178 /* TripSettingsView.swift */; };
+		10B4479522C75BEA00A23178 /* TripSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4479422C75BEA00A23178 /* TripSettingsViewModel.swift */; };
 		10B7A7BD22BCE0D800392543 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */; };
 		10B7A7BF22BCE50A00392543 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7A7BE22BCE50A00392543 /* WelcomeView.swift */; };
 		10BAC2BC22BCFEE2005A642B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAC2BB22BCFEE2005A642B /* MainViewController.swift */; };
@@ -91,6 +93,8 @@
 		1053DC7D22C3955A0006150B /* TripulateStatisticsDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripulateStatisticsDependencyContainer.swift; sourceTree = "<group>"; };
 		105796B722BD581400355614 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		105796C322BE0AC800355614 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		10B4479222C75B5A00A23178 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
+		10B4479422C75BEA00A23178 /* TripSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsViewModel.swift; sourceTree = "<group>"; };
 		10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		10B7A7BE22BCE50A00392543 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		10BAC2BB22BCFEE2005A642B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				10B7A7BC22BCE0D800392543 /* SettingsViewModel.swift */,
 				B81E7E3822B9035600BBAB72 /* TripPickerView.swift */,
 				B868629E22C2209000AE7362 /* TripPickerViewModel.swift */,
+				10B4479222C75B5A00A23178 /* TripSettingsView.swift */,
+				10B4479422C75BEA00A23178 /* TripSettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 				B89B65E722B7CD0500EE750C /* AddTripViewModel.swift in Sources */,
 				10BAC2C322BD0C78005A642B /* TripulateExpensesDependencyContainer.swift in Sources */,
 				B89B659022B7B53B00EE750C /* AppDelegate.swift in Sources */,
+				10B4479322C75B5A00A23178 /* TripSettingsView.swift in Sources */,
 				B81E7E3922B9035600BBAB72 /* TripPickerView.swift in Sources */,
 				105796C422BE0AC800355614 /* WelcomeViewModel.swift in Sources */,
 				1053DC7E22C3955A0006150B /* TripulateStatisticsDependencyContainer.swift in Sources */,
@@ -505,6 +512,7 @@
 				10BAC2BC22BCFEE2005A642B /* MainViewController.swift in Sources */,
 				10BAC2C922BD0ED6005A642B /* ExpensesNavigationController.swift in Sources */,
 				B89B659722B7B53B00EE750C /* ExpensesView.swift in Sources */,
+				10B4479522C75BEA00A23178 /* TripSettingsViewModel.swift in Sources */,
 				B81E7E3B22B904B100BBAB72 /* AddTripView.swift in Sources */,
 				10BAC2CC22BD1141005A642B /* TripulateSettingsDependencyContainer.swift in Sources */,
 				B89B65E522B7CBEF00EE750C /* DecimalTextField.swift in Sources */,

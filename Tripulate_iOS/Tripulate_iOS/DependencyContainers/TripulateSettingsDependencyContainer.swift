@@ -34,7 +34,22 @@ class TripulateSettingsDependencyContainer {
     }
     
     func makeSettingsView() -> SettingsView {
-        return SettingsView(viewModel: makeSettingsViewModel(), tripPickerView: makeTripPickerView())
+        return SettingsView(
+            viewModel: makeSettingsViewModel(),
+            tripPickerView: makeTripPickerView(),
+            tripSettingsView: makeTripSettingsView()
+        )
+    }
+    
+    func makeTripSettingsViewModel() -> TripSettingsViewModel {
+        return TripSettingsViewModel(
+            configurationStore: sharedConfigurationStore,
+            dataStore: sharedDataStore
+        )
+    }
+    
+    func makeTripSettingsView() -> TripSettingsView.WithViewModel {
+        return TripSettingsView().environmentObject(makeTripSettingsViewModel())
     }
     
     func makeTripPickerViewModel() -> TripPickerViewModel {

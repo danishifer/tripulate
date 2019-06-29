@@ -12,5 +12,5 @@ public class Currency: Codable {
     public let code: String
     public let displayName: String
     public let symbol: String
-
+    public let useSpace: Bool
 }

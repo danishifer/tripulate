@@ -11,17 +11,25 @@ import SwiftUI
 struct SettingsView : View {
     @ObjectBinding var viewModel: SettingsViewModel
     let tripPickerView: TripPickerView.WithViewModel
-
+    let tripSettingsView: TripSettingsView.WithViewModel
+    
     var body: some View {
         NavigationView {
             Form {
-                Section(footer: Text("Select the active trip or create a new one").color(.gray)) {
+                Section(
+                    header: Text("Active Trip"),
+                    footer: Text("Select the active trip or create a new one").color(.gray)
+                ) {
                     NavigationButton(destination: tripPickerView) {
                         HStack {
-                            Text("Trip")
+                            Text("Active Trip")
                             Spacer()
                             Text(viewModel.activeTripName ?? "").color(.secondary)
                         }
+                    }
+                    
+                    NavigationButton(destination: tripSettingsView) {
+                        Text("Trip Settings")
                     }
                 }
             }

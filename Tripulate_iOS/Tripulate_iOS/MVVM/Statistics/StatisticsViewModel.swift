@@ -30,9 +30,11 @@ class StatisticsViewModel: BindableObject {
             .receive(on: RunLoop.main)
             .sink { _ in
                 self.trip = self.loadTrip()
+                self.loadCurrency()
                 self.loadExpenses()
             }
         
+        self.loadCurrency()
         self.loadExpenses()
     }
     
@@ -44,24 +46,79 @@ class StatisticsViewModel: BindableObject {
        return self.dataStore.getTrip(byID: activeTripID)
     }
     
+    func loadCurrency() {
+        guard let code = self.trip?.currency else {
+            return
+        }
+        
+        self.currency = Currency.from(code: code)
+    }
+    
     
     lazy var trip: Trip? = self.loadTrip()
+    
+    var currency: Currency? = nil
     
     lazy var categories: [ExpenseCategory] = {
         return self.dataStore.getExpenseCategories()
     }()
     
-    var categoriesDistibution: [BarData] {
+    var categoriesDistibution: [BarData<AnyView>] {
         get {
             let categoriesSum = self.loadCategoriesSum()
             
-            return self.categories.map { (category: ExpenseCategory) -> BarData in
+            return self.categories.map { (category: ExpenseCategory) -> BarData<AnyView> in
                 let sum = categoriesSum[category.id!] ?? 0.0
                 return BarData(
                     id: category.id,
                     value: sum,
-                    label: Text(numberFormatter.string(for: sum)!),
-                    icon: Image(uiImage: category.icon)
+                    label: AnyView(Group {
+                        Text(numberFormatter.string(for: sum)!)
+                            .font(.caption)
+                            .color(.secondary)
+                            .padding(.top, 2)
+                        
+                        Image(uiImage: category.icon)
+                    })
+                )
+            }
+        }
+    }
+    
+    var daysDistribution: [BarData<AnyView>] {
+        get {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM dd"
+            
+            struct hello {
+                let label: String
+                var sum: Double = 0.0
+            }
+            
+            var data: [hello] = []
+            
+            // Expenses are sort by creation date
+            self.expenses.forEach { (expense) in
+                let label = formatter.string(from: expense.creationDate)
+                if data.last?.label != label {
+                    data.append(hello(label: label))
+                }
+                
+                data[data.count - 1].sum += expense.amount
+            }
+            
+            print(data.map { (day) -> BarData<AnyView> in
+                return BarData(
+                    id: day.label,
+                    value: day.sum,
+                    label: AnyView(Text(day.label))
+                )
+            })
+            return data.map { (day) -> BarData<AnyView> in
+                return BarData(
+                    id: day.label,
+                    value: day.sum,
+                    label: AnyView(Text(day.label))
                 )
             }
         }

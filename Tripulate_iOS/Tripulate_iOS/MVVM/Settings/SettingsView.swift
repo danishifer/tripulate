@@ -20,7 +20,7 @@ struct SettingsView : View {
                     header: Text("Active Trip"),
                     footer: Text("Select the active trip or create a new one").color(.gray)
                 ) {
-                    NavigationButton(destination: tripPickerView) {
+                    NavigationLink(destination: tripPickerView) {
                         HStack {
                             Text("Active Trip")
                             Spacer()
@@ -28,7 +28,7 @@ struct SettingsView : View {
                         }
                     }
                     
-                    NavigationButton(destination: tripSettingsView) {
+                    NavigationLink(destination: tripSettingsView) {
                         Text("Trip Settings")
                     }
                 }

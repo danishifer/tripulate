@@ -25,21 +25,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Cannot get AppDelegate")
         }
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        
-        window.rootViewController = UIHostingController(rootView: RootView(
-            controller: MainViewController(
-                viewControllers: [
-                    appDelegate.appContainer.makeStatisticsViewController(),
-                    appDelegate.appContainer.makeExpensesViewController(),
-                    appDelegate.appContainer.makeSettingsViewController(),
-                ],
-                defaultTabIndex: 0
-            )
-        ).environmentObject(appDelegate.appContainer.makeRootViewModel()))
-        
-        self.window = window
-        window.makeKeyAndVisible()
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            
+            window.rootViewController = UIHostingController(rootView: RootView(
+                controller: MainViewController(
+                    viewControllers: [
+                        appDelegate.appContainer.makeStatisticsViewController(),
+                        appDelegate.appContainer.makeExpensesViewController(),
+                        appDelegate.appContainer.makeSettingsViewController(),
+                    ],
+                    defaultTabIndex: 0
+                )
+            ).environmentObject(appDelegate.appContainer.makeRootViewModel()))
+            
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

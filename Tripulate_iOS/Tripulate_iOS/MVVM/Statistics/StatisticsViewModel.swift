@@ -90,35 +90,34 @@ class StatisticsViewModel: BindableObject {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM dd"
             
-            struct hello {
+            struct DayBar {
                 let label: String
                 var sum: Double = 0.0
             }
             
-            var data: [hello] = []
+            var data: [DayBar] = []
             
-            // Expenses are sort by creation date
+            // Expenses are already sort by creation date
+            
             self.expenses.forEach { (expense) in
                 let label = formatter.string(from: expense.creationDate)
                 if data.last?.label != label {
-                    data.append(hello(label: label))
+                    data.append(DayBar(label: label))
                 }
                 
                 data[data.count - 1].sum += expense.amount
             }
             
-            print(data.map { (day) -> BarData<AnyView> in
-                return BarData(
-                    id: day.label,
-                    value: day.sum,
-                    label: AnyView(Text(day.label))
-                )
-            })
             return data.map { (day) -> BarData<AnyView> in
                 return BarData(
                     id: day.label,
                     value: day.sum,
-                    label: AnyView(Text(day.label))
+                    label: AnyView(
+                        Text(day.label)
+                            .font(.caption)
+                            .color(.secondary)
+                            .padding(.top, 2)
+                    )
                 )
             }
         }

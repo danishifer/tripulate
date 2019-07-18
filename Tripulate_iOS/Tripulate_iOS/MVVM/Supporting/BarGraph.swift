@@ -40,7 +40,7 @@ struct BarGraph<Label> : View where Label: View {
         
         return AnyView(GeometryReader { geometry in
             HStack(alignment: .bottom) {
-                ScrollView(showsHorizontalIndicator: false) {
+                ScrollView(showsIndicators: false) {
                     HStack(alignment: .bottom, spacing: self.kBarSpacing) {
                         ForEach(self.data) { (bar: BarData) in
                             VStack(alignment: .center, spacing: 0) {

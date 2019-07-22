@@ -15,4 +15,5 @@ public protocol ConfigurationStore {
 
 extension Notification.Name {
     public static let activeTripDidChange = Notification.Name("activeTripDidChange")
+    public static let TripulateExpenseAdded = Notification.Name("tripulateExpenseAdded")
 }

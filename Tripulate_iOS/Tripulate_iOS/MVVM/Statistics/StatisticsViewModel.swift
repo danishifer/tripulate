@@ -34,6 +34,18 @@ class StatisticsViewModel: BindableObject {
                 self.loadExpenses()
             }
         
+        let _ = NotificationCenter.default.publisher(for: .TripulateExpenseAdded)
+            .receive(on: RunLoop.main)
+            .sink { changedTrip in
+                guard let changedTrip = changedTrip.object as? Trip else {
+                    return
+                }
+                
+                if changedTrip.id == self.trip?.id {
+                    self.loadExpenses()
+                }
+            }
+        
         self.loadCurrency()
         self.loadExpenses()
     }

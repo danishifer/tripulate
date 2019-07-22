@@ -48,6 +48,7 @@ class AddExpenseViewModel: BindableObject {
         
         do {
             let _ = try self.dataStore.addExpense(expense, toTrip: activeTrip)
+            NotificationCenter.default.post(name: .TripulateExpenseAdded, object: activeTrip)
             return true
         } catch {
             print("Couldn't add expense - data store error")

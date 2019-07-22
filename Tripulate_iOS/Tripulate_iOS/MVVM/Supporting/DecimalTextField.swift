@@ -32,7 +32,7 @@ struct DecimalTextField: UIViewRepresentable {
         let textField = UITextField()
         textField.delegate = context.coordinator
         textField.keyboardType = .decimalPad
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel])
+        textField.placeholder = placeholder
         
         
         return textField

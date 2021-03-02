@@ -22,14 +22,8 @@ Tripulate will log your expenses and automagically present you with beautiful st
 
 
 
-![Onboarding 1](/screenshots/ios-1.png)
+![Onboarding 1](./screenshots/ios-1.png) ![Onboarding 2](./screenshots/ios-2.png) ![Onboarding 3](./screenshots/ios-3.png)
 
-![Onboarding 2](/screenshots/ios-2.png)
+<br /><br />
 
-![Onboarding 3](/screenshots/ios-3.png)
-
-<br />
-
-![My Trips](/screenshots/ios-4.png)
-
-![Trip](/screenshots/ios-5.png)
+![My Trips](./screenshots/ios-4.png) ![Trip](./screenshots/ios-5.png)
